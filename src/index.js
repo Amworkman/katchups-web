@@ -7,9 +7,6 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import KatchupsStore from './Reducers/KatchupsStore';
-import Login from './Components/Login/Login';
-import SignUp from './Components/SignUp/SignUp';
-import Main from './Components/Main/Main';
 
 
 const store = createStore(KatchupsStore, applyMiddleware(thunk))
