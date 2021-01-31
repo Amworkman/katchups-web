@@ -1,12 +1,12 @@
 import React, { useReducer } from 'react';
 import './Login.css';
+import {Link} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../../Actions/LoginActions"
 
   const initialState = {
-    name: "",
-    location: "",
     email: "",
-    password: "",
-    password_confirmation: "",    
+    password: ""   
   }
 
   function reducer(state, { name, value }) {
@@ -18,24 +18,31 @@ import './Login.css';
 
   function Login() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const storeDispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const handleChange = (e) => {
       dispatch({name: e.target.name, value: e.target.value})
     } 
 
-    const { name, location, email, password, password_confirmation } = state  
+    const { email, password } = state 
+    
+    const handleSubmit = (e, state) =>{
+      e.preventDefault()
+      storeDispatch(userLogin(state))
+      debugger
+    }
 
   return (
     <div className="login-card">
-      <div className="form" fade-in-element>
-        <form>
-          <input type="text" name="name" className="input-box" value={name} onChange={handleChange} placeholder="Full Name" />
-          <input type="location" id="user-location-input" name="location" className="input-box"  value={location}  onChange={handleChange} placeholder="Location (ex. Atlanta, GA)" />
+      <div className="form">
+        <form onSubmit={(e) => handleSubmit(e, state, user)}>
           <input type="email" name="email" className="input-box"  value={email}  onChange={handleChange} placeholder="Email" />
           <input type="password" name="password" className="input-box"  value={password}  onChange={handleChange} placeholder="Password" />
-          <input type="password" name="password_confirmation" className="input-box"  value={password_confirmation}  onChange={handleChange} placeholder="Confirm Password" />
-          <input type="submit" id="signup-btn" name="signup-btn" className="btn" value="Sign Up" />
-          <input type="button" id="signin-btn" name="signup-btn" className="btn" value="Already have an account?" />
+          <input type="submit" name="login-btn" className="btn" value="Sign In" />
+          <Link to="/sign-up">
+            <input type="button" id="signup-btn" name="signup-btn" className="btn" value={"Don't have an account?"} />
+          </Link>
         </form>
       </div>
     </div>
