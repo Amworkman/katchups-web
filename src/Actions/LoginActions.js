@@ -1,7 +1,7 @@
-export const userLogin = (userParams) => {
+export const userLogin = (userParams, url) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING'})
-    fetch('http://localhost:3000/login',{
+    fetch(`http://localhost:3000/${url}`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
