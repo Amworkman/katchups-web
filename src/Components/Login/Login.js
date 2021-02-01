@@ -29,8 +29,7 @@ import { userLogin } from "../../Actions/LoginActions"
     
     const handleSubmit = (e, state) =>{
       e.preventDefault()
-      storeDispatch(userLogin(state))
-      debugger
+      storeDispatch(userLogin(state, "login"))
     }
 
   return (
