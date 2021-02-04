@@ -19,7 +19,7 @@ import { userLogin } from "../../Actions/LoginActions"
     }
   }
 
-  function SignUp() {
+  const SignUp = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const storeDispatch = useDispatch()
     const user = useSelector(state => state.user)
@@ -33,7 +33,6 @@ import { userLogin } from "../../Actions/LoginActions"
     const handleSubmit = (e, state) =>{
       e.preventDefault()
       storeDispatch(userLogin(state, "users"))
-      debugger
     }
 
   return (
