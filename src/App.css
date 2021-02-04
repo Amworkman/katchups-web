@@ -23,3 +23,20 @@
 .App-link {
   color: #61dafb;
 }
+
+h1{
+  font-size: 160px;
+  text-align: center;
+  margin: 60px auto 0px;
+  /* text-transform: uppercase; */
+  font-weight: 700;
+  font-family: Righteous;
+  color: white;
+  max-width: 1150px;
+  text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px #ccc, -1px 2px 0px #ccc, -3px 2px 0px #ccc, -2px 3px 0px #ccc, -4px 3px 0px #ccc, -3px 4px 0px #ccc, -5px 4px 0px #ccc, -4px 5px 0px #ccc, -6px 5px 0px #ccc, -5px 6px 15px #777;
+  display: inline-block;
+  position: relative;
+  padding: 0px 6px; 
+  transition: 0.8s;
+  transform: rotateX( 0deg ) rotateY( 0deg ) rotateZ( 0deg );
+}
