@@ -16,7 +16,7 @@ import { userLogin } from "../../Actions/LoginActions"
     }
   }
 
-  function Login() {
+  const Login = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const storeDispatch = useDispatch()
     const user = useSelector(state => state.user)
