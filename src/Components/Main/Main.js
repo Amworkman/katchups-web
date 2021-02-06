@@ -8,6 +8,7 @@ const Main = () => {
     <div>
       <h1>katchups</h1>
       <RestaurantsContainer />
+      <FriendsContainer />
     </div>
   );
 };
