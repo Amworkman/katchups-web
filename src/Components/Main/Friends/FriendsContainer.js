@@ -1,5 +1,5 @@
 import React from 'react';
-import './FriendsContainer.css'
+import './FriendsContainer.scoped.css'
 import { useEffect } from 'react';
 import { fetchFriends } from '../../../Actions/FriendActions'
 import { useDispatch, useSelector } from "react-redux";
