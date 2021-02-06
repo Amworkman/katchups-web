@@ -1,4 +1,5 @@
 import React from 'react';
+import './RestaurantsContainer.scoped.css';
 
 const Restaurant = (props) => {
   return (
