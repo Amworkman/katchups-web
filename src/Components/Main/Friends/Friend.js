@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './FriendsContainer.scoped.css'
 
 const Friend = (props) => {
   return (
