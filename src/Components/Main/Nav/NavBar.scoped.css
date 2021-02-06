@@ -1,0 +1,59 @@
+.navbar {
+  position: absolute;
+  width:100%;
+  top: 0px;
+  left: 0px;
+  background-color: #2a2a2a;
+  margin: 0 auto;
+  height: 60px;
+  border-bottom: 5px dashed rgb(212, 212, 212);
+}
+
+.button{
+  display: inline-flex;
+  position: absolute;
+  text-transform: uppercase;
+  margin: 15px auto;
+  padding: 6px 20px;
+  background-color: #e4e4e400;
+  color: #2a2a2a;
+  border: none;
+  outline: none;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  border-radius: 10px;
+  text-shadow: .08vw .1vw .15vw #0000006e,
+               -.08vw -.1vw .15vw #838383;
+  transition: 0.5s;
+  transition: text-shadow 0.5;
+}
+
+.button:hover {
+  text-shadow: 0px 2px 12px rgb(0, 0, 0);
+  color: #c7c7c7;
+}
+
+.button:focus {
+  text-shadow: 0px 2px 12px rgb(0, 0, 0);
+  color: #c7c7c7;
+}
+
+.button-logout{  
+  right: 2%;
+}
+
+.button-username{  
+  left: 3%;
+}
+
+.button-find{ 
+  right: 42%;
+}
+
+.button-recents{  
+  right: 22%;
+}
+
+.button-location{
+  right: 62%;
+}
