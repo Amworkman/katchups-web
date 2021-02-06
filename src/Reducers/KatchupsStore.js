@@ -1,5 +1,6 @@
 const KatchupsStore = ( state = {
   restaurants: [],
+  friends: [],
   loading: false
 }, action ) => {
   switch ( action.type ) {
@@ -13,11 +14,17 @@ const KatchupsStore = ( state = {
         ...state,
         loading: false,
       } 
-    case 'GET_RESTAURANTS': 
+    case 'GET_RESTAURANTS':
       return {
         ...state,
         restaurants: action.restaurants,
         loading: false        
+      }
+    case 'GET_FRIENDS':
+      return{
+        ...state,
+        friends: action.friends,
+        loading: false
       }
     default:
       return state; 
