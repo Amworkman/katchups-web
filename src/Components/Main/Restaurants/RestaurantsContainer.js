@@ -1,5 +1,5 @@
 import React from "react";
-import "./RestaurantsContainer.css";
+import './RestaurantsContainer.scoped.css';
 import { useEffect } from "react";
 import { fetchRestaurants } from "../../../Actions/RestaurantActions";
 import { useDispatch, useSelector } from "react-redux";
