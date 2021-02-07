@@ -26,9 +26,11 @@ const FriendsContainer = () => {
 
   return (
     <div className='right-container'>
-      <div className='friend-container'>
+      <div className="box-fade box-fade-top"></div>
+      <div className='friend-container'>        
         {renderFriends()}
       </div>
+      <div className="box-fade box-fade-bottom"></div>
     </div>
   );
 };
