@@ -79,8 +79,6 @@
   border-radius: 10px; 
   transition: 0.5s; 
   transition: box-shadow 0.5;
-  box-shadow: inset -.15vw .5vw .7vw #c7c7c7,
-              inset .15vw -.5vw .7vw #ebebeb;
 }
 
 .search:focus {
