@@ -1,20 +1,24 @@
 .navbar {
   position: absolute;
-  width:100%;
-  top: 0px;
-  left: 0px;
+  display: table;
+  width: 100%;
+  top: 0;
+  left: 0;
   background-color: #2a2a2a;
-  margin: 0 auto;
   height: 60px;
   border-bottom: 5px dashed rgb(212, 212, 212);
 }
 
-.button{
+.middle {
+  background-color: rgba(0, 0, 255, 0);
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.button{  
   display: inline-flex;
-  position: absolute;
-  text-transform: uppercase;
-  margin: 15px auto;
-  padding: 6px 20px;
+  position: relative;
+  text-transform: uppercase;  
   background-color: #e4e4e400;
   color: #2a2a2a;
   border: none;
@@ -22,8 +26,8 @@
   font-size: 1.5vw;
   font-weight: bolder;
   border-radius: 10px;
-  text-shadow: .08vw .1vw .15vw #0000006e,
-               -.08vw -.1vw .15vw #838383;
+  text-shadow: -.08vw .1vw .15vw #000000b6,
+               .08vw -.06vw .12vw #b6b6b696;
   transition: 0.5s;
   transition: text-shadow 0.5;
 }
@@ -38,22 +42,41 @@
   color: #c7c7c7;
 }
 
-.button-logout{  
-  right: 2%;
+.button-logout{
+  bottom: .35vw;
+  right: -86%;
 }
 
-.button-username{  
-  left: 3%;
+.button-username{
+  text-shadow: 0px 2px 12px rgb(0, 0, 0);
+  color: #c7c7c7; 
+  bottom: .35vw;
+  right: 5%;
 }
 
 .button-find{ 
-  right: 42%;
+  bottom: .35vw;
+  right: -46%;
 }
 
-.button-recents{  
-  right: 22%;
+.button-recents{
+  bottom: .35vw;  
+  right: -15%;
 }
 
 .button-location{
-  right: 62%;
+  bottom: .35vw;
+  right: 14%;
+}
+
+.button-img{ 
+    position: relative;  
+    left: 13px;
+    top: 3px;
+    width: 45px;
+    height: 45px;
+    background: #a53c3c;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
 }
