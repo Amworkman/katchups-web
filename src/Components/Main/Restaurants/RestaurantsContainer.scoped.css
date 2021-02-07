@@ -20,9 +20,9 @@
 
 .restaurant-container {
   position: absolute;
-  display: block;
-  top: 80px;    
+  display: block;    
   background-color: #e4e4e400;
+  top: 80px;
   height: 85%;
   width: 94%;
   text-align: center;
@@ -37,6 +37,27 @@
   overflow-y: scroll;
   -ms-overflow-style: none; 
   scrollbar-width: none;
+}
+.box-fade{
+  position: absolute;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;    
+  background-color: #9b111100;
+  height: 2%;
+  width: 94%;
+  box-shadow: inset 0 1.3vw .6vw -.6vw #e4e4e4;
+  z-index: 1;
+}
+
+.box-fade-top{
+  top: 80px;    
+}
+
+.box-fade-bottom{
+  bottom: 20px;
+  box-shadow: inset 0 -1.3vw .6vw -.6vw #e4e4e4;
 }
 
 .list-img {
