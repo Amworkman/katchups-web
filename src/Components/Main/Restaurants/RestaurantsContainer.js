@@ -30,9 +30,13 @@ const RestaurantsContainer = () => {
 	return (
     
 		<div className="left-container">
-			<div className="restaurant-container">
-        {renderRestaurants()}
-      </div>
+			<div className="box-fade box-fade-top">
+			</div>
+				<div className="restaurant-container">				
+        	{renderRestaurants()}
+				</div> 
+				<div className="box-fade box-fade-bottom">
+				</div>     
 		</div>
 	);
 };
