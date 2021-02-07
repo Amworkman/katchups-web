@@ -21,7 +21,7 @@
 .friend-container {
   position: absolute;
   display: block;
-  top: 80px;    
+  top: 10%;    
   background-color: #e4e4e400;
   height: 85%;
   width: 94%;
@@ -53,11 +53,11 @@
 }
 
 .box-fade-top{
-  top: 80px;    
+  top: 10%;    
 }
 
 .box-fade-bottom{
-  bottom: 20px;
+  top: 93%;
   box-shadow: inset 0 -1.3vw .6vw -.6vw #e4e4e4;
 }
 
