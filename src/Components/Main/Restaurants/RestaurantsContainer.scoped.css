@@ -37,8 +37,8 @@
   overflow-y: scroll;
   -ms-overflow-style: none; 
   scrollbar-width: none;
-  box-shadow: inset -.15vw .5vw .7vw #c7c7c7,
-              inset .15vw -.5vw .7vw #ebebeb;
+  box-shadow: inset -.15vw .2vw .3vw #c7c7c7,
+  inset .15vw -.2vw .3vw #ebebeb;
 }
 
 .list-img {
