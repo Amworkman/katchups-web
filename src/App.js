@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Route path="/login" component={Login} />
         <Route path="/sign-up" component={SignUp} />
-        <Route path="/" component={Main} />
+        <Route exact path="/" component={Main} />
       </Router>
     </div>
   );
