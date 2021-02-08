@@ -38,13 +38,13 @@
   direction: rtl;
   -ms-overflow-style: none; 
   scrollbar-width: none;
-  box-shadow: inset -.15vw .5vw .7vw #c7c7c7,
-              inset .15vw -.5vw .7vw #ebebeb;
+  box-shadow: inset -.15vw .2vw .3vw #c7c7c7,
+              inset .15vw -.2vw .3vw #ebebeb;
 }
 
 .list-img {
   display: block;
-  margin-top: 3vw;
+  margin-top: 1vw;
   width: 7vw;
   height: 7vw;
   background: #3f3f3f;
