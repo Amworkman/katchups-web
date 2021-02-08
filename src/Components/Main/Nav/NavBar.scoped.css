@@ -27,13 +27,13 @@
   font-weight: bolder;
   border-radius: 10px;
   text-shadow: -.08vw .1vw .15vw #000000b6,
-               .08vw -.06vw .12vw #b6b6b696;
+               .08vw -.06vw .11vw #b6b6b696;
   transition: 0.5s;
   transition: text-shadow 0.5;
 }
 
 .button:hover {
-  text-shadow: 0px 2px 12px rgb(0, 0, 0);
+  text-shadow: .08vw .06vw .12vw rgb(0, 0, 0);
   color: #c7c7c7;
 }
 
@@ -42,31 +42,56 @@
   color: #c7c7c7;
 }
 
-.button-logout{
-  bottom: .35vw;
-  right: -86%;
+.button-burger{
+  position: relative;  
+  top: 350px;
+  width: 45px;
+  height: 45px;
 }
 
 .button-username{
   text-shadow: 0px 2px 12px rgb(0, 0, 0);
   color: #c7c7c7; 
   bottom: .35vw;
-  right: 5%;
+  right: -1.5%;
 }
 
 .button-find{ 
   bottom: .35vw;
-  right: -46%;
+  right: -48%;
 }
 
 .button-recents{
   bottom: .35vw;  
-  right: -15%;
+  right: -17%;
 }
 
 .button-location{
   bottom: .35vw;
-  right: 14%;
+  right: 12%;
+}
+
+.menu-button{
+  position: absolute;
+  right: 5vw;
+  transform: rotate(-180deg);
+  color: #752c2c;
+  text-shadow: -.08vw .1vw .15vw #180303b6,
+               .08vw -.06vw .11vw #c54b4b96;
+}
+
+.logout{
+  top: 250px;
+}
+
+.settings{
+  top: 170px;
+  right: 4.5vw;
+}
+
+.dark{
+  top: 90px;
+  right: 1.7vw;
 }
 
 .button-img{ 
@@ -79,4 +104,47 @@
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
+}
+
+.burger-menu{
+  position: absolute;
+  right: 10px;
+  top: -350px;
+  justify-content: center;
+  text-align: center;
+  background-color: #752c2c;
+  border-radius: 10px;
+  width: 17vw;
+  height: 400px;
+  box-shadow: .3vw .3vw 1vw rgba(51, 51, 51, 0.644);
+  transform-origin: 50% 94.5%;
+  transition: transform 0.7s ease-in-out;
+  animation: bounceOut 0.7s ease-in-out;
+  z-index: 1000;
+}
+
+.burger-menu:hover{
+  transform: rotate(-180deg);
+  transition: transform 0.5s ease-in-out;
+  animation: bounceIn 0.7s ease-in-out;
+}
+
+@keyframes bounceIn { 
+  from { transform: rotate(0deg) }
+
+  75% { transform: rotate(-200deg) }
+
+  90% { transform: rotate(-175deg) }
+
+  to { transform: rotate(-180deg) }
+}
+
+@keyframes bounceOut { 
+  from { transform: rotate(360deg) }
+
+  0% { transform: rotate(180deg) }
+
+  10% { transform: rotate(160deg) }
+
+  to { transform: rotate(360deg) }
 }
