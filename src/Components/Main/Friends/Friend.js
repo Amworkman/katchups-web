@@ -5,7 +5,7 @@ const Friend = (props) => {
   return (
     <div>
       <img className="list-img" src={props.img} /><br />
-      <h2>{props.name}</h2> <br /> <br /> <br />
+      <h2>{props.name}</h2> <br /> 
     </div>
   );
 };
