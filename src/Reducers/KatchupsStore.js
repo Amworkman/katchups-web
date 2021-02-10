@@ -1,7 +1,11 @@
+import { userLogin } from "../Actions/LoginActions";
+
 const KatchupsStore = ( state = {
   restaurants: [],
   friends: [],
-  loading: false
+  updated: false,
+  loading: false,
+  loggedIn: false
 }, action ) => {
   switch ( action.type ) {
     case 'LOADING':
@@ -13,6 +17,17 @@ const KatchupsStore = ( state = {
       return {
         ...state,
         loading: false,
+        loggedIn: true
+      }
+    case 'USER_UPDATED':
+      return {
+        updated: true
+      }
+    case 'USER_LOGOUT':
+      return {
+        ...state,
+        loading: false,
+        loggedIn: false
       } 
     case 'GET_RESTAURANTS':
       return {
