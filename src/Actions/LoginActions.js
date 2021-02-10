@@ -8,15 +8,14 @@ export const userLogin = (userParams, url) => {
         "Accept": "application/json"
       },
       body: JSON.stringify(userParams)
-    })
-    .then(resp => {
+    }).then(resp => {
       return resp.json()
     }).then(data => {
       localStorage.setItem('token', data.token) 
       localStorage.setItem('currentUser', JSON.stringify(data.user)) 
       return data
     }).then(data => {
-      dispatch({ type: 'USER_LOGIN', user: data.user })
+      dispatch({ type: 'USER_LOGIN' })
     })
   }
 }
