@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import './Login.css';
+import './Login.scoped.css';
 import {Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Actions/LoginActions"
@@ -30,6 +30,10 @@ import { userLogin } from "../../Actions/LoginActions"
     const handleSubmit = (e, state) =>{
       e.preventDefault()
       storeDispatch(userLogin(state, "login"))
+    }
+
+    if(localStorage.currentUser !== undefined ){
+      window.location="/"
     }
 
   return (
