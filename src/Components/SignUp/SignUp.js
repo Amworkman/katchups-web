@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import './SignUp.css';
+import './SignUp.scoped.css';
 import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Actions/LoginActions"
@@ -9,7 +9,7 @@ import { userLogin } from "../../Actions/LoginActions"
     location: "",
     email: "",
     password: "",
-    password_confirmation: "",    
+    password_confirmation: ""   
   }
 
   function reducer(state, { name, value }) {
@@ -22,8 +22,7 @@ import { userLogin } from "../../Actions/LoginActions"
   const SignUp = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const storeDispatch = useDispatch()
-    const user = useSelector(state => state.user)
-    
+    const storeState = useSelector(state => state)
     const handleChange = (e) => {
       dispatch({name: e.target.name, value: e.target.value})
     } 
@@ -32,13 +31,17 @@ import { userLogin } from "../../Actions/LoginActions"
     
     const handleSubmit = (e, state) =>{
       e.preventDefault()
-      storeDispatch(userLogin(state, "users"))
+      storeDispatch(userLogin(state, "users"))      
+    } 
+    
+    if(storeState.loggedIn===true) { 
+     window.location="/sign-up/select-image"
     }
 
   return (
-    <div className="login-card">
+    <div className="signup-card">
       <div className="form">
-        <form onSubmit={(e) => handleSubmit(e, state, user)}>
+        <form onSubmit={(e) => handleSubmit(e, state)}>
           <input type="text" name="name" className="input-box" value={name} onChange={handleChange} placeholder="Full Name" />
           <input type="location" id="user-location-input" name="location" className="input-box"  value={location}  onChange={handleChange} placeholder="Location (ex. Atlanta, GA)" />
           <input type="email" name="email" className="input-box"  value={email}  onChange={handleChange} placeholder="Email" />
