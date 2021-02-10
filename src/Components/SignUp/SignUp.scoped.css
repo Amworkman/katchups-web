@@ -88,6 +88,27 @@
   margin : 0 auto
 }
 
+.submit-btn {
+  position: relative;
+  margin: 1vw auto;
+  padding: 1vw 3vw;
+  background-color: #e4e4e4;
+  color: rgb(63, 63, 63);
+  bottom: -30vh;
+  border: none;
+  outline: none;
+  font-size: 1.2vw;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 1vw 1.2vw #a8a8a8;
+  transition: box-shadow 0.5;
+}
+
+.submit-btn:hover {
+  box-shadow: 0px .5vw .5vw #aaa;
+  font-size: 1.18vw;
+}
+
 .file-select{
   position: absolute;
   bottom: 200px;
@@ -95,6 +116,7 @@
 
 .profile-img {
   position: absolute;
+  right: 8vw;
   width: 20vw;
   height: 20vw;
   background: #3f3f3f00;
@@ -111,6 +133,37 @@
   max-width: 100%;
 }
 
+.profile-img:hover{
+  background-color:#000;
+  opacity:0.5;
+}
+
+.image-mask{
+  position: absolute;
+  right: 8vw;
+  width: 20vw;
+  height: 20vw;
+  background: #3f3f3f00;
+  top: 70px;
+  line-height: 20vw;
+  text-align: center;
+  color: rgba(0, 0, 0, 0);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  z-index: 1000;
+  transition: 0.5s;
+}
+
+.image-mask:hover{
+  background-color:rgb(158, 158, 158);
+  opacity:0.5;
+  color: #000;
+  
+}
+
 a:link {
   text-decoration: none;
 }
@@ -125,4 +178,12 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+h2 {
+  font-size: 2vw;
+  position: relative;
+  bottom: -25vh;
+  text-shadow: -.1vw .25vw .25vw #aaaaaad5,
+               .1vw -.25vw .25vw #eeeeeec7;
 }
