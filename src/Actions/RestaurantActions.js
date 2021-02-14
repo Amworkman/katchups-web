@@ -1,7 +1,7 @@
-export const fetchRestaurants = () => {
+export const fetchRestaurants = (location) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING'})
-    fetch(`http://localhost:3000/restaurants`,{
+    fetch(`http://localhost:3000/restaurants?location=${location}`,{
       method: "GET",
       headers: {
         "content-type": "application/json",
