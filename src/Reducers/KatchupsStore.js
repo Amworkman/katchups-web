@@ -1,5 +1,3 @@
-import { userLogin } from "../Actions/LoginActions";
-
 const KatchupsStore = ( state = {
   restaurants: [],
   friends: [],
