@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { fetchRestaurants } from '../../../Actions/RestaurantActions';
 import { useDispatch } from "react-redux";
 import './NavBar.scoped.css'
@@ -14,14 +14,16 @@ const Location = () => {
 
   const user = JSON.parse(localStorage.currentUser)
   const storeDispatch = useDispatch();
-
+  
   let initialState = {
-    currentLocation: user.location
+    currentLocation: user.location,
+    locationLength: user.location.length + "ch"
   } 
   
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { currentLocation } = state
+  const { currentLocation, locationLength } = state
+  
 
   const handleSubmit = (e) => {
      e.preventDefault()
@@ -30,15 +32,14 @@ const Location = () => {
 
   const handleChange = (e) => {
     dispatch({name: e.target.name, value: e.target.value})
+    if (currentLocation.length > 2){
+      dispatch({name: e.target.id, value: e.target.value.length + 2 + "ch"})
+    } else { dispatch({name: e.target.id, value: e.target.placeholder.length + 1 + "ch"})  }
   }
-
   
-
- 
-
   return (
     <>
-      <form onSubmit={handleSubmit}><input type="text" id="nav-search-input" name="currentLocation" className="button button-location"  onChange={handleChange} placeholder="ENTER CITY" value={currentLocation}></input></form>
+      <form onSubmit={handleSubmit}><input type="text" style={{width: locationLength}} id="locationLength" name="currentLocation"  className="button button-location"  onChange={handleChange.bind(this)} placeholder="ENTER CITY" value={currentLocation}></input></form>
     </>
   );
 };
