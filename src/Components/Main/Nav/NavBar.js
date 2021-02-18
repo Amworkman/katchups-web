@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.scoped.css'
 import Menu from './Menu'
-import FindFriends from './FindFriends'
+import FindFriends from './FriendsSearch/FindFriends'
 import Location from './Location'
 import Recents from './Recents'
 
