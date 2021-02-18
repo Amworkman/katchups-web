@@ -16,7 +16,7 @@ function reducer(state, { name, value }) {
   }
 }
 
-const user = JSON.parse(localStorage.currentUser)
+
 
 const RestaurantsContainer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -25,6 +25,7 @@ const RestaurantsContainer = () => {
 	const parsedRestaurants = []
 
 	useEffect(() => {
+		const user = JSON.parse(localStorage.currentUser)
 		storeDispatch(fetchRestaurants(user.location));
 	}, [storeDispatch]);
 
