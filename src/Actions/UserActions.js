@@ -18,3 +18,20 @@ export const updateUser = (user, formData) => {
     }).catch(err => console.log(err));
   }
 }
+
+export const searchUsers = (friendSearch) => {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING'})
+    fetch(`http://localhost:3000/users?search=${friendSearch}`,{
+      method: "GET",
+      headers: {
+      "content-type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      }
+  }).then(resp => {
+    return resp.json()
+  }).then(data => {
+    dispatch({ type: 'GET_USERS', users: data })
+  }).catch(err => console.log(err));
+  }
+}
