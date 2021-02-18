@@ -54,7 +54,13 @@
 
 .button-find{  
   bottom: 22%;
-  right: 25vw;
+  left: 65vw;
+}
+
+.button-find:focus {
+  text-shadow: .08vw .06vw .12vw rgb(0, 0, 0);
+  color: #c7c7c7; 
+  transition: 0s; 
 }
 
 .button-recents{
@@ -138,26 +144,116 @@
   right: 65vw;
 }
 
+.card {
+  position: absolute;
+  display: block;
+  top: 20vh;  
+  left: 25%;  
+  background-color: #e4e4e4;
+  height: 63vh;
+  width: 50%;
+  text-align: center; 
+  align-content: center;   
+  align-items: center;
+  justify-content: center;
+  padding: .5vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  animation: fadeUp .3s ease-in-out;
+  animation-fill-mode: forwards;  
+}
+
+.cardInner {
+  position: absolute;
+  top: 3%;  
+  left: 2%;  
+  height: 91%;
+  width: 94%;
+  padding: .5vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: black;
+  overflow-y: scroll;
+  overflow-x: visible ;
+  background: #e4e4e4;
+  background: linear-gradient(225deg, #cfcfcf, #e4e4e4);
+  animation: fadeDown .7s ease-in-out; 
+  animation-delay: .1s; 
+  animation-fill-mode: forwards;   
+}
+
+.user{
+  display: inline-table;
+  height: 10vw;
+  width: 10vw;
+  opacity: 0;
+  animation: fadeIn .5s ease-in-out;
+  animation-delay: .9s; 
+  animation-fill-mode: forwards;  
+}
+
+.list-img {  
+  margin-top: 1vw;
+  width: 7vw;
+  height: 7vw;
+  background-color: #752c2c;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+h2{
+  margin: 0px 0px 15px 0px; 
+  padding: 0px 0px 0px 0px;
+  font-size: 1.1vw;
+  font-family: Helvetica;
+}
+
 @keyframes bounceIn { 
   from { transform: rotate(0deg) }
-
   75% { transform: rotate(-200deg) }
-
   90% { transform: rotate(-175deg) }
-
   to { transform: rotate(-180deg) }
 }
 
 @keyframes bounceOut { 
-  from { transform: rotate(360deg) }
-
-  0% { transform: rotate(180deg) }
-
-  10% { transform: rotate(160deg) }
-
-  to { transform: rotate(360deg) }
+  from { transform: rotate(-360deg) }
+  0% { transform: rotate(-180deg) }
+  to { transform: rotate(-360deg) }
+}
+@keyframes fadeDown { 
+  from { box-shadow: inset 0vw 0vw 0vw #c7c7c7,
+                     inset 0vw 0vw 0vw #ebebeb,
+                     0vw 0vw 0vw #c7c7c7,
+                     0vw 0vw 0vw #ebebeb;
+       }
+         
+  to { box-shadow: inset -.05vw .2vw .3vw #c7c7c7,
+                   inset .05vw -.2vw .3vw #ebebeb,
+                   .15vw -.2vw .5vw #c7c7c7,
+                   -.15vw .2vw .5vw #ebebeb; }
 }
 
+@keyframes fadeUp { 
+  from { box-shadow: 0px 0px 0px #552020,
+                      0px 0px 0px #953838;
+         opacity: 0; }
+  50% { opacity: 1; } 
+  to { box-shadow:  -1.5vw 1.5vw 3vw #552020,
+                    1.5vw -1.5vw 3vw #953838,
+                    inset .05vw -.2vw .2vw #b8b8b8,
+                    inset -.05vw .2vw .2vw #fbfbfb }
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -176,4 +272,9 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 0px #000 inset;
   -webkit-text-fill-color: #2a2a2a;
   transition: background-color 99999s ease-in-out 99999s;
+}
+
+@keyframes cube-drop {
+  from { transform: translateY(0) translateZ(-1px) }
+  to { transform: translateY(153px) translateZ(-1px) }
 }
