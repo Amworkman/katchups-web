@@ -10,25 +10,37 @@
 }
 
 .fitText{
+  position: absolute;
   text-align: center;
   margin: 60px auto 0px;
   font-weight: 700;
   font-family: Righteous;
+  top: 20vh;
   color: white;
   max-width: 1150px;
   text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgb(204, 194, 194, 0.7), -1px 2px 0px rgb(204, 184, 184, 0.7), -3px 2px 0px rgb(204, 174, 174, 0.7), -2px 3px 0px rgba(204, 164, 164, 0.7), -4px 3px 0px rgb(204, 154, 154, 0.7), -3px 4px 0px rgb(204, 144, 144, 0.7), -5px 4px 0px rgb(204, 134, 134, 0.7), -4px 5px 0px rgb(204, 124, 124, 0.7), -6px 5px 0px rgba(204, 114, 114, 0.7), -5px 5px 15px rgba(24, 7, 7, 0.952), 5px -.1px 10px rgba(216, 127, 127, 0.37);
   display: inline-block;
-  position: relative;
   padding: 0px 6px; 
   transition: 0.8s;
-  transform: rotateX( 0deg ) rotateY( 0deg ) rotateZ( 0deg );
+  top: 41%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  opacity: 0; 
 }
 
 .main{
-  height: 20vw;
+  top: 50px;
+  height: 85vh;
   width: 50vw;
   text-align: center;
-  display: flex;
+  display: block;
   justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
 
+@keyframes fadeIn { 
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
