@@ -27,7 +27,7 @@ const FindFriendsCard = (props) => {
     User
       key={user.id}
       name={user.name} 
-      img={user.profile_img}
+      img={user.profile_img_url}
       location={user.location}
       email={user.email}
   />)
