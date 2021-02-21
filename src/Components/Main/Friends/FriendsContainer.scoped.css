@@ -62,6 +62,63 @@
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
+  cursor: pointer;
+}
+
+.friendImg {
+  position: absolute;
+  width: 25vh;
+  height: 25vh;
+  background: #3f3f3f;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn .5s;
+  animation-fill-mode: forwards; 
+  opacity: 0; 
+}
+
+.friendImg-inner {
+  position: absolute;
+  width: 25vh;
+  height: 25vh;
+  background: #752c2c;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: imageFadeDown 2.5s; 
+  animation-fill-mode: forwards; 
+  opacity: 0; 
+}
+
+.friendImg-outer {
+  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  background: #752c2c;
+  top: 24%; 
+  left: 50%;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: imageFadeUp 2s;
+  animation-delay: .5s; 
+  opacity: 0;
+  animation-fill-mode: forwards;
+  
 }
 
 .search{
@@ -94,9 +151,156 @@
               -.15vw .05vw .2vw #ebebeb;
 }
 
+.recents {
+  position: relative;
+  display: flex;
+  width: 50%;
+  height: 107%;
+  top: -3%;
+  left: -1%;
+  overflow-y: scroll;
+  text-align: center;
+  justify-content: center;
+  align-items:center;
+  
+}
+
+.katchupButton {
+  position: absolute;
+  right: 9%;
+  top: 30%;
+  width: 15vw;
+  height: 13vh;
+  border-radius: 10px;
+  font-family: Righteous;
+  color: white;
+  font-size: unset;
+  text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgba(235, 235, 235, 0.7), -1px 2px 0px rgba(226, 226, 226, 0.7), -3px 2px 0px rgba(216, 216, 216, 0.7), -2px 3px 0px rgba(206, 206, 206, 0.7), -4px 3px 0px rgba(195, 195, 195, 0.7), -3px 4px 0px rgba(187, 187, 187, 0.7), -5px 4px 0px rgba(177, 177, 177, 0.7), -4px 5px 0px rgba(167, 167, 167, 0.7), -6px 5px 0px rgba(156, 156, 156, 0.7), -5px 5px 15px rgba(82, 82, 82, 0.952), 5px -.1px 10px rgba(250, 250, 250, 0.37);
+  transition: 0.8s;
+  background-color: #cdcdcd;
+  box-shadow:  18px 18px 47px #b9b9b9,
+             -18px -18px 47px #ffffff;
+  border: none;
+}
+
+.katchupButton:hover {
+  background-color: #b44545;
+  text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgb(204, 194, 194, 0.7), -1px 2px 0px rgb(204, 184, 184, 0.7), -3px 2px 0px rgb(204, 174, 174, 0.7), -2px 3px 0px rgba(204, 164, 164, 0.7), -4px 3px 0px rgb(204, 154, 154, 0.7), -3px 4px 0px rgb(204, 144, 144, 0.7), -5px 4px 0px rgb(204, 134, 134, 0.7), -4px 5px 0px rgb(204, 124, 124, 0.7), -6px 5px 0px rgba(204, 114, 114, 0.7), -5px 5px 15px rgba(24, 7, 7, 0.952), 5px -.1px 10px rgba(216, 127, 127, 0.37);
+  box-shadow:  14px 14px 28px #b9b9b9,
+             -14px -14px 28px #ffffff;
+}
+
+.katchupButton:focus {
+  background-color: #943131;
+  border: none;
+  outline: none;
+  text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgb(204, 194, 194, 0.7), -1px 2px 0px rgb(204, 184, 184, 0.7), -3px 2px 0px rgb(204, 174, 174, 0.7), -2px 3px 0px rgba(204, 164, 164, 0.7), -4px 3px 0px rgb(204, 154, 154, 0.7), -3px 4px 0px rgb(204, 144, 144, 0.7), -5px 4px 0px rgb(204, 134, 134, 0.7), -4px 5px 0px rgb(204, 124, 124, 0.7), -6px 5px 0px rgba(204, 114, 114, 0.7), -5px 5px 15px rgba(24, 7, 7, 0.952), 5px -.1px 10px rgba(216, 127, 127, 0.37);
+  box-shadow:  14px 14px 28px #a6a6a6,
+             -14px -14px 28px #ffffff;
+}
+
+.card{
+  position: absolute;
+  display: block;    
+  background-color: #e4e4e4;
+  height: 30%;
+  width: 48%;
+  text-align: center; 
+  align-content: center;   
+  align-items: center;
+  justify-content: center;
+  padding: .5vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;  
+  animation: fadeUp 1s;
+  animation-delay: .3s; 
+  opacity: 0;
+  animation-fill-mode: forwards;   
+  left: 50%;
+  transform: translate(-50%);
+} 
+
+.cardInner {
+  position: absolute;
+  top: 3%;  
+  left: 2%;  
+  height: 88%;
+  width: 94%;
+  padding: .5vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: black;
+  overflow-y: scroll;
+  overflow-x: visible ;
+  background: #e4e4e4;
+  background: linear-gradient(225deg, #cfcfcf, #e4e4e4);
+  animation: fadeDown .7s ease-in-out; 
+  animation-delay: .5s; 
+  animation-fill-mode: forwards; 
+  overflow: hidden;  
+}
+
 h2{
   margin: 0px 0px 15px 0px; 
   padding: 0px 0px 0px 0px;
   font-size: 1.1vw;
   font-family: Helvetica;
+}
+
+@keyframes fadeUp {
+  from {top: 75vh;opacity: 0;}
+  to {top: 60vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
+                              1.5vw -1.5vw 3vw #953838,
+                              inset .05vw -.2vw .2vw #b8b8b8,
+                              inset -.05vw .2vw .2vw #fbfbfb; opacity: 1}
+}
+
+@keyframes fadeDown { 
+  from { 
+    box-shadow: inset 0vw 0vw 0vw #c7c7c7,
+                inset 0vw 0vw 0vw #ebebeb,
+                0vw 0vw 0vw #c7c7c7,
+                0vw 0vw 0vw #ebebeb;
+  }
+         
+  to { 
+    box-shadow: inset -.05vw .2vw .3vw #c7c7c7,
+                   inset .05vw -.2vw .3vw #ebebeb,
+                   .15vw -.1vw .5vw #c7c7c7,
+                   -.15vw .1vw .3vw #ebebeb;
+  }
+}
+
+@keyframes imageFadeUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    box-shadow: inset 10px -10px 10px #632525,
+                  inset -10px 10px 10px #873333; 
+    opacity: 1
+  }
+}
+
+@keyframes imageFadeDown { 
+  from {
+    opacity: 0;
+  }
+
+  50%{
+    opacity: 0
+  }
+         
+  to { 
+    box-shadow: 10px -10px 10px #632525,
+                -10px 10px 10px #873333;                       
+    opacity: 1
+  }
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
