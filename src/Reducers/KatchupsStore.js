@@ -4,6 +4,8 @@ const KatchupsStore = ( state = {
   users: [],
   updated: false,
   loading: false,
+  loadingFriends: false,
+  loadingUsers: false,
   loggedIn: false
 }, action ) => {
   switch ( action.type ) {
@@ -12,6 +14,16 @@ const KatchupsStore = ( state = {
         ...state,
         loading: true
       } 
+      case 'LOADING_FRIENDS':
+      return {
+        ...state,
+        loadingFriends: true
+      }
+      case 'LOADING_USERS':
+      return {
+        ...state,
+        loadingUsers: true
+      }
     case 'USER_LOGIN':
       return {
         ...state,
