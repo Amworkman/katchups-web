@@ -9,11 +9,9 @@
   color: white;
 }
 
-h1{
-  font-size: 11vw;
+.fitText{
   text-align: center;
   margin: 60px auto 0px;
-  /* text-transform: uppercase; */
   font-weight: 700;
   font-family: Righteous;
   color: white;
@@ -24,4 +22,13 @@ h1{
   padding: 0px 6px; 
   transition: 0.8s;
   transform: rotateX( 0deg ) rotateY( 0deg ) rotateZ( 0deg );
+}
+
+.main{
+  height: 20vw;
+  width: 50vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
 }
