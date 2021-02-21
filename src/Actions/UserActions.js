@@ -20,9 +20,9 @@ export const updateUser = (user, formData) => {
 }
 
 export const searchUsers = (friendSearch) => {
-  return (dispatch) => {
-    dispatch({ type: 'LOADING'})
-    fetch(`http://localhost:3000/users?search=${friendSearch}`,{
+  return async (dispatch) => {
+    dispatch({ type: 'LOADING_USERS'})
+    await fetch(`http://localhost:3000/users?search=${friendSearch}`,{
       method: "GET",
       headers: {
       "content-type": "application/json",
