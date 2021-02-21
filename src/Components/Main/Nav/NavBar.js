@@ -15,7 +15,7 @@ const NavBar = () => {
         <FindFriends />
         <Recents />
         <Location />
-        <img className="button button-img" src={user.profile_img} />               
+        <img className="button button-img" src={user.profile_img_url} />               
         <input type="button" id="user-tag" name="user-tag" className="button button-username" value={user.name} />
         
         
