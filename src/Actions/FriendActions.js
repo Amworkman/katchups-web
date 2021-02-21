@@ -1,6 +1,6 @@
 export const fetchFriends = () => {
   return (dispatch) => {
-    dispatch({ type: 'LOADING'})
+    dispatch({ type: 'LOADING_FRIENDS'})
     fetch(`http://localhost:3000/friends`,{
       method: "GET",
       headers: {
