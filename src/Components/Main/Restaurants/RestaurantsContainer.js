@@ -18,7 +18,7 @@ function reducer(state, { name, value }) {
 
 
 
-const RestaurantsContainer = () => {
+const RestaurantsContainer = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 	const storeDispatch = useDispatch();
 	const restaurants = useSelector((state) => state.restaurants);
@@ -39,7 +39,7 @@ const RestaurantsContainer = () => {
     }
   }
 
-	const renderRestaurants = () => {
+	const renderRestaurants = (props) => {
 		restaurants.filter(searchRestaurantList)
 		return parsedRestaurants.map((restaurant) => ( <
       Restaurant
@@ -50,6 +50,7 @@ const RestaurantsContainer = () => {
 				location={restaurant.location}
 				categories={restaurant.categories}
 				img={restaurant.image_url}
+				handleSelectedRestaurant={props.handleSelectedRestaurant}
 			/>
 		));
 	}
@@ -61,7 +62,7 @@ const RestaurantsContainer = () => {
 			<div className="box-fade box-fade-top">
 			</div>
 				<div className="restaurant-container">				
-        	{renderRestaurants()}
+        	{renderRestaurants(props)}
 				</div> 
 				<div className="box-fade box-fade-bottom">
 				</div>     
