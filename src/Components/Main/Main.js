@@ -1,13 +1,15 @@
-import React, { useReducer, useEffect, useRef } from 'react';
+import React, { useReducer, useRef } from 'react';
 import RestaurantsContainer from './Restaurants/RestaurantsContainer'
 import FriendsContainer from './Friends/FriendsContainer'
 import NavBar from './Nav/NavBar'
 import { ReactFitty } from "react-fitty"
 import FriendCard from "./Friends/FriendCard"
+import RestaurantCard from "./Restaurants/RestaurantCard"
 
 const initialState = {
   search: '',
-  friendCard: ''  
+  friendCard: '',
+  restaurantCard: ''  
 }
 
 function reducer(state, { name, value }) {
@@ -20,40 +22,40 @@ function reducer(state, { name, value }) {
 
 
 const Main = () => {
-
-  function useOutsideAlerter(ref) {
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (ref.current && !ref.current.contains(event.target)) {
-              dispatch({name: 'friendCard', value: ''})
-              let fitText = document.getElementById("fitText")
-              if (fitText.innerText !== "katchups"){
-                fitText.innerText = "katchups" 
-              }             
-            }
-        }
-  
-        document.addEventListener("mouseup", handleClickOutside);
-        return () => {
-            document.removeEventListener("mouseup", handleClickOutside);
-        };
-    }, [ref]);
+  function handleClickOutside(event, st, ref) {
+    if (ref.current && !ref.current.contains(event.target)) {
+      if (state.friendCard !== '') {
+        dispatch({name: 'friendCard', value: ''})
+      }
+      if (state.restaurantCard !== '') {
+        dispatch({name: 'restaurantCard', value: ''})
+      }
+      let fitText = document.getElementById("fitText")
+      if (fitText.innerText !== "katchups"){
+        fitText.innerText = "katchups" 
+      }             
+    }
   }
 
-  const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef);
+  const wrapperRef = useRef(null);  
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  document.addEventListener("mouseup",(e) => handleClickOutside(e, state, wrapperRef)); 
   const handleSelectedFriend = (props) => {
     dispatch({name: 'friendCard', value: <FriendCard friend={props}/>})
+  }
+
+  const handleSelectedRestaurant = (props) => {
+    dispatch({name: 'restaurantCard', value: <RestaurantCard restaurant={props}/>})
   }
   return (
     <div className="main" >
       <ReactFitty className="fitText" id="fitText" style={{opacity: 1}} >katchups</ReactFitty>      
       <RestaurantsContainer />
       <FriendsContainer handleSelectedFriend={handleSelectedFriend}/>
+      <RestaurantsContainer handleSelectedRestaurant={handleSelectedRestaurant}/>
       <div ref={wrapperRef}>
         {state.friendCard}
+        {state.restaurantCard}
       </div>
       <NavBar />
     </div>
