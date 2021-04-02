@@ -47,6 +47,11 @@ const Main = () => {
   const handleSelectedRestaurant = (props) => {
     dispatch({name: 'restaurantCard', value: <RestaurantCard restaurant={props}/>})
   }
+
+  if(localStorage.currentUser === undefined || localStorage.currentUser === "undefined" ){
+    window.location="/login"
+  }
+
   return (
     <div className="main" >
       <ReactFitty className="fitText" id="fitText" style={{opacity: 1}} >katchups</ReactFitty>      

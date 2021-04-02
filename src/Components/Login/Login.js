@@ -19,8 +19,7 @@ import { userLogin } from "../../Actions/LoginActions"
   const Login = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const storeDispatch = useDispatch()
-    const user = useSelector(state => state.user)
-
+    const storeState = useSelector(state => state)
     const handleChange = (e) => {
       dispatch({name: e.target.name, value: e.target.value})
     } 
@@ -32,14 +31,15 @@ import { userLogin } from "../../Actions/LoginActions"
       storeDispatch(userLogin(state, "login"))
     }
 
-    if(localStorage.currentUser !== undefined ){
+    if(storeState.loggedIn === true && localStorage.currentUser !== undefined && localStorage.currentUser !== "undefined") { 
       window.location="/"
     }
+    debugger
 
   return (
     <div className="login-card">
       <div className="form">
-        <form onSubmit={(e) => handleSubmit(e, state, user)}>
+        <form onSubmit={(e) => handleSubmit(e, state)}>
           <input type="email" name="email" className="input-box"  value={email}  onChange={handleChange} placeholder="Email" />
           <input type="password" name="password" className="input-box"  value={password}  onChange={handleChange} placeholder="Password" />
           <input type="submit" name="login-btn" className="btn" value="Sign In" />
