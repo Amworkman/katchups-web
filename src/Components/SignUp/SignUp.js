@@ -35,7 +35,7 @@ import { userLogin } from "../../Actions/LoginActions"
       storeDispatch(userLogin(state, "users"))      
     } 
     
-    if(storeState.loggedIn===true) { 
+    if(storeState.loggedIn === true) { 
      window.location="/sign-up/select-image"
     }
 
