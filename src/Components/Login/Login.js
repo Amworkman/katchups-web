@@ -34,7 +34,6 @@ import { userLogin } from "../../Actions/LoginActions"
     if(storeState.loggedIn === true && localStorage.currentUser !== undefined && localStorage.currentUser !== "undefined") { 
       window.location="/"
     }
-    debugger
 
   return (
     <div className="login-card">
