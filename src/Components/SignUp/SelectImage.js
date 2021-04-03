@@ -45,7 +45,7 @@ const SelectImage = ({ getBlob}) => {
       const formData = new FormData(e.target);
       storeDispatch(updateUser(user, formData))
     } else {
-      setImageMessage({message: "Click on the katchups logo to upload a profile image"})     
+      setImageMessage({message: "Click on the image above"})     
     }
   }
 
