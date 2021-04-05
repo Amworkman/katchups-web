@@ -54,7 +54,7 @@ const Main = () => {
 
   return (
     <div className="main" >
-      <ReactFitty className="fitText" id="fitText" style={{opacity: 1}} >katchups</ReactFitty>      
+      <ReactFitty maxSize="150" className="fitText" id="fitText" style={{opacity: 1}} >katchups</ReactFitty>      
       <RestaurantsContainer />
       <FriendsContainer handleSelectedFriend={handleSelectedFriend}/>
       <RestaurantsContainer handleSelectedRestaurant={handleSelectedRestaurant}/>
