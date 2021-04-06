@@ -142,8 +142,8 @@
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 5px -5px 5px #c7c7c7,
-                  inset -5px 5px 5px #dddddd;     
+  box-shadow: .2vw -.2vw .2vw #c7c7c7,
+              -.2vw .2vw .2vw #dddddd;       
 }
 
 .listImg-outer {
@@ -163,10 +163,8 @@
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 5px -5px 5px #c7c7c7,
-              inset -5px 5px 5px #dddddd; 
- 
-  
+  box-shadow: inset .2vw -.2vw .2vw #c7c7c7,
+              inset -.2vw .2vw .2vw #dddddd;  
 }
 
 .recents {
