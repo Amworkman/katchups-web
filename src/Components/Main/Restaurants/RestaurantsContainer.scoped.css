@@ -142,8 +142,8 @@
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 5px -5px 5px #e0e0e0,
-                -5px 5px 5px #cacaca;       
+  box-shadow: inset 5px -5px 5px #c7c7c7,
+                  inset -5px 5px 5px #dddddd;     
 }
 
 .listImg-outer {
@@ -151,7 +151,7 @@
   display: block;
   width: 6vw;
   height: 6vw;
-  background: #a7a7a7;
+  background: transparent;
   text-align: center;
   align-content: center;
   align-items: center;
@@ -163,8 +163,8 @@
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 5px -5px 5px #cacaca,
-                  inset -5px 5px 5px #e0e0e0;
+  box-shadow: inset 5px -5px 5px #c7c7c7,
+              inset -5px 5px 5px #dddddd; 
  
   
 }
