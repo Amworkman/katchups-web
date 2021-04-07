@@ -23,7 +23,9 @@ const RestaurantCard = (props) => {
           <div className="recents">
             no recent katchups at {props.restaurant.name}
           </div>
-          <button className="katchupButton"> katchup here </button>
+          <div className="cardInner-right">
+            <button className="katchupButton"> katchup here </button>
+          </div>
         </div>
       </div>
     </>
