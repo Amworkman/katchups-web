@@ -141,16 +141,14 @@
   -webkit-border-radius: 50%;
   top: 50%; 
   left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: .2vw -.2vw .2vw #c7c7c7,
-              -.2vw .2vw .2vw #dddddd;       
+  transform: translate(-50%, -50%);      
 }
 
 .listImg-outer {
   position: relative;
   display: block;
-  width: 6vw;
-  height: 6vw;
+  width: 6.1vw;
+  height: 6.1vw;
   background: transparent;
   text-align: center;
   align-content: center;
@@ -162,9 +160,15 @@
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: inset .2vw -.2vw .2vw #c7c7c7,
-              inset -.2vw .2vw .2vw #dddddd;  
+  transform: translate(-50%, -50%); 
+  transition: .6s; 
+}
+
+.listImg-outer:hover{
+  box-shadow: inset .2vw -.2vw .2vw #c0c0c0,
+              inset -.2vw .2vw .2vw #e0e0e0,
+              -.2vw .2vw .5vw #c0c0c03d,
+              .2vw -.2vw .5vw #ffffff3d; 
 }
 
 .recents {
@@ -182,37 +186,37 @@
 }
 
 .katchupButton {
-  position: absolute;
-  right: 9%;
-  top: 30%;
-  width: 15vw;
-  height: 13vh;
-  border-radius: 10px;
+  position: flex;
+  width: 11vw;
+  height: 11vw;
+  border-radius: 50%;
   font-family: Righteous;
   color: white;
-  font-size: unset;
+  font-size: 2vw;
   text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgba(235, 235, 235, 0.7), -1px 2px 0px rgba(226, 226, 226, 0.7), -3px 2px 0px rgba(216, 216, 216, 0.7), -2px 3px 0px rgba(206, 206, 206, 0.7), -4px 3px 0px rgba(195, 195, 195, 0.7), -3px 4px 0px rgba(187, 187, 187, 0.7), -5px 4px 0px rgba(177, 177, 177, 0.7), -4px 5px 0px rgba(167, 167, 167, 0.7), -6px 5px 0px rgba(156, 156, 156, 0.7), -5px 5px 15px rgba(82, 82, 82, 0.952), 5px -.1px 10px rgba(250, 250, 250, 0.37);
   transition: 0.8s;
-  background-color: #cdcdcd;
-  box-shadow:  18px 18px 47px #b9b9b9,
-             -18px -18px 47px #ffffff;
+  cursor: pointer;
+  background-color: #cab1b1;
+  box-shadow:  -.5vw .5vw 2vw #7a7a7a,
+              .5vw -.5vw 2vw #ffffff;
   border: none;
 }
 
 .katchupButton:hover {
   background-color: #b44545;
   text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgb(204, 194, 194, 0.7), -1px 2px 0px rgb(204, 184, 184, 0.7), -3px 2px 0px rgb(204, 174, 174, 0.7), -2px 3px 0px rgba(204, 164, 164, 0.7), -4px 3px 0px rgb(204, 154, 154, 0.7), -3px 4px 0px rgb(204, 144, 144, 0.7), -5px 4px 0px rgb(204, 134, 134, 0.7), -4px 5px 0px rgb(204, 124, 124, 0.7), -6px 5px 0px rgba(204, 114, 114, 0.7), -5px 5px 15px rgba(24, 7, 7, 0.952), 5px -.1px 10px rgba(216, 127, 127, 0.37);
-  box-shadow:  14px 14px 28px #b9b9b9,
-             -14px -14px 28px #ffffff;
+  box-shadow:  -.2vw .2vw 1vw #4b4b4b,
+             .2vw -.2vw 1vw #ffffff;
 }
 
 .katchupButton:focus {
   background-color: #943131;
   border: none;
   outline: none;
+  cursor: default;
   text-shadow: -1px 0 0px #ddd, 0 1px 0px #ccc, -2px 1px 0px rgb(204, 194, 194, 0.7), -1px 2px 0px rgb(204, 184, 184, 0.7), -3px 2px 0px rgb(204, 174, 174, 0.7), -2px 3px 0px rgba(204, 164, 164, 0.7), -4px 3px 0px rgb(204, 154, 154, 0.7), -3px 4px 0px rgb(204, 144, 144, 0.7), -5px 4px 0px rgb(204, 134, 134, 0.7), -4px 5px 0px rgb(204, 124, 124, 0.7), -6px 5px 0px rgba(204, 114, 114, 0.7), -5px 5px 15px rgba(24, 7, 7, 0.952), 5px -.1px 10px rgba(216, 127, 127, 0.37);
-  box-shadow:  14px 14px 28px #a6a6a6,
-             -14px -14px 28px #ffffff;
+  box-shadow:  -3vw 3vw 6vw #a6a6a6,
+             3vw -3vw 6vw #ffffff;
 }
 
 .card{
@@ -256,6 +260,17 @@
   animation-delay: .5s; 
   animation-fill-mode: forwards; 
   overflow: hidden;  
+}
+.cardInner-right {
+  position: absolute;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  top: 0%;
+  right: 0%;
+  text-align: center;
+  justify-content: center;
+  align-items:center;  
 }
 
 .search{
@@ -324,8 +339,10 @@ h2{
     opacity: 0;
   }
   to {
-    box-shadow: inset 10px -10px 10px #632525,
-                  inset -10px 10px 10px #873333; 
+    box-shadow: inset 1vh -1vh 1vh #632525,
+                  inset -1vh 1vh 1vh #873333,
+                   -1vh 1vh 2vh #551a1a4d,
+                   1vh -1vh 2vh #923d3d4d;
     opacity: 1
   }
 }
