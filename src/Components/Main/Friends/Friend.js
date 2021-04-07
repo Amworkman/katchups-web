@@ -10,7 +10,11 @@ const Friend = (props) => {
 
   return (
     <div>
-      <img  onClick={() => handleSelectedFriend(props)} className="list-img" src={props.img} /><br />
+      <div className="listImg-outer">
+        <div className="listImg-inner">
+          <img  onClick={() => handleSelectedFriend(props)} className="list-img" src={props.img} /><br />
+        </div>
+      </div>
       <h2>{props.name}</h2> <br /> 
     </div>
   );
