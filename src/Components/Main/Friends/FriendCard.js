@@ -23,7 +23,9 @@ const FriendCard = (props) => {
           <div className="recents">
             no recent katchups
           </div>
-          <button className="katchupButton"> katchup </button>
+          <div className="cardInner-right">
+            <button className="katchupButton"> katchup </button>
+          </div>
         </div>
       </div>
     </>
