@@ -11,7 +11,6 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div className="middle">
-        <Menu />
         <FindFriends />
         <Recents />
         <Location />
