@@ -14,9 +14,8 @@ const FriendCard = (props) => {
     <>
       {changeText()}
       <div className="friendImg-outer">
-        <div className="friendImg-inner">
-          <img  className="friendImg" src={props.friend.img} /><br />
-        </div>
+        <div className="friendImg-inner"></div>
+        <img  className="friendImg" src={props.friend.img} /><br />        
       </div>
       <div className="card">
         <div className="cardInner">
