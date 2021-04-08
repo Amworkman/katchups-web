@@ -5,11 +5,12 @@ import NavBar from './Nav/NavBar'
 import { ReactFitty } from "react-fitty"
 import FriendCard from "./Friends/FriendCard"
 import RestaurantCard from "./Restaurants/RestaurantCard"
+import Menu from "./Nav/Menu"
 
 const initialState = {
   search: '',
   friendCard: '',
-  restaurantCard: ''  
+  restaurantCard: '',
 }
 
 function reducer(state, { name, value }) {
@@ -19,16 +20,26 @@ function reducer(state, { name, value }) {
   }
 }
 
-
-
 const Main = () => {
   function handleClickOutside(event, st, ref) {
     if (ref.current && !ref.current.contains(event.target)) {
       if (state.friendCard !== '') {
         dispatch({name: 'friendCard', value: ''})
+        if (document.getElementsByClassName("listImg-outer--selected")[0]){
+          const selectedFriend = document.getElementsByClassName("listImg-outer--selected")[0]
+          selectedFriend.className = "listImg-outer"
+        }
       }
       if (state.restaurantCard !== '') {
         dispatch({name: 'restaurantCard', value: ''})
+        if (document.getElementsByClassName("listImg-outer--selected")[0]){
+          const selectedFriend = document.getElementsByClassName("listImg-outer--selected")[0]
+          selectedFriend.className = "listImg-outer"
+        }
+      }
+      if (document.getElementsByClassName("burger-menu--selected")[0]){
+        const selectedFriend = document.getElementsByClassName("burger-menu--selected")[0]
+        selectedFriend.className = "burger-menu"
       }
       let fitText = document.getElementById("fitText")
       if (fitText.innerText !== "katchups"){
@@ -54,13 +65,13 @@ const Main = () => {
 
   return (
     <div className="main" >
-      <ReactFitty maxSize="150" className="fitText" id="fitText" style={{opacity: 1}} >katchups</ReactFitty>      
-      <RestaurantsContainer />
+      <ReactFitty maxSize="150" className="fitText" id="fitText" style={{opacity: 1}} >katchups</ReactFitty>
       <FriendsContainer handleSelectedFriend={handleSelectedFriend}/>
       <RestaurantsContainer handleSelectedRestaurant={handleSelectedRestaurant}/>
       <div ref={wrapperRef}>
         {state.friendCard}
         {state.restaurantCard}
+        <Menu />
       </div>
       <NavBar />
     </div>
