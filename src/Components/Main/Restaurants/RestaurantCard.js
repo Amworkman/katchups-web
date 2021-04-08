@@ -14,9 +14,8 @@ const RestaurantCard = (props) => {
     <>
       {changeText()}
       <div className="restaurantImg-outer">
-        <div className="restaurantImg-inner">
-          <img  className="restaurantImg" src={props.restaurant.img} /><br />
-        </div>
+        <div className="restaurantImg-inner"></div>
+        <img  className="restaurantImg" src={props.restaurant.img} /><br />        
       </div>
       <div className="card">
         <div className="cardInner">
