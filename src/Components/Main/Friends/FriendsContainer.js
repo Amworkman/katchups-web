@@ -4,11 +4,9 @@ import { useEffect } from 'react';
 import { fetchFriends } from '../../../Actions/FriendActions'
 import { useDispatch, useSelector } from "react-redux";
 import Friend from './Friend';
-import FriendCard from './FriendCard'
 
 const initialState = {
-  search: '',
-  friendCard: ''  
+  search: ''  
 }
 
 function reducer(state, { name, value }) {
@@ -43,6 +41,7 @@ const FriendsContainer = (props) => {
     return parsedFriends.map( friend => <
       Friend
         key={friend.id}
+        id={friend.id}
         name={friend.name} 
         img={friend.profile_img_url}
         location={friend.location}
@@ -51,18 +50,14 @@ const FriendsContainer = (props) => {
     />)
   }
 
-  
-
-  return (
-    
+  return (    
     <div className='right-container'>
       <input type="text" id="friend-search" name="search" className="search" value={state.search} onChange={handleChange} placeholder="Search Friends" />
-      <div className="box-fade box-fade-top"></div>
+      <div className="box-fade box-fade-top"/>
       <div className='friend-container'>        
-        {renderFriends(props)}
-        {state.friendCard}    
+        {renderFriends(props)}   
       </div>
-      <div className="box-fade box-fade-bottom"></div>
+      <div className="box-fade box-fade-bottom"/>
     </div>
   );
 };
