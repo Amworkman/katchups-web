@@ -44,6 +44,7 @@ const RestaurantsContainer = (props) => {
 		return parsedRestaurants.map((restaurant) => ( <
       Restaurant
 				key={restaurant.id}
+				id={restaurant.id}
 				name={restaurant.name}
 				price={restaurant.price}
 				rating={restaurant.rating}
@@ -55,17 +56,14 @@ const RestaurantsContainer = (props) => {
 		));
 	}
 
-	return (
-    
+	return (    
 		<div className="left-container">
 			<input type="text" id="rest-search" name="search" className="search" onChange={handleChange} value={state.search} placeholder="Search Restaurants" />
-			<div className="box-fade box-fade-top">
-			</div>
+			<div className="box-fade box-fade-top"/>
 				<div className="restaurant-container">				
         	{renderRestaurants(props)}
 				</div> 
-				<div className="box-fade box-fade-bottom">
-				</div>     
+				<div className="box-fade box-fade-bottom"/>     
 		</div>
 	);
 };
