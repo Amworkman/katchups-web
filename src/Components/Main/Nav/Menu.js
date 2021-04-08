@@ -11,8 +11,15 @@ const Menu = () => {
     window.location="/login"   
   }
 
+  const handleClick = () => {
+    debugger
+    if (document.getElementsByClassName("burger-menu")[0]){
+      document.getElementsByClassName("burger-menu")[0].className = "burger-menu--selected"
+    }
+  }
+
   return (
-    <div className="burger-menu">
+    <div className="burger-menu" onClick={handleClick}>
       <img className="button button-burger" src='burger.png' /> 
       <input type="button" id="logout-btn" name="logout-btn" onClick={handleLogout} className="button menu-button logout" value="logout" />
       <input type="button" id="settings-btn" name="settings-btn" className="button menu-button settings" value="settings" />
