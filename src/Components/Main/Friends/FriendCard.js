@@ -4,11 +4,16 @@ import './FriendsContainer.scoped.css'
 
 
 const FriendCard = (props) => {
+  debugger
   let fitText = document.getElementById("fitText")
   
   const changeText = () => {
     fitText.innerText = props.friend.name
   }
+
+  if (props.friend.confirmed == false)
+  // TODO: change button 
+  // style and function depending on .confirmed value
 
   return (
     <>
