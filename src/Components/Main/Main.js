@@ -27,7 +27,7 @@ const Main = () => {
         dispatch({name: 'friendCard', value: ''})
         if (document.getElementsByClassName("listImg-outer--selected")[0]){
           const selectedFriend = document.getElementsByClassName("listImg-outer--selected")[0]
-          selectedFriend.className = "listImg-outer"
+          selectedFriend.className = state.friendCard.props.friend.status + " listImg-outer"
         }
       }
       if (state.restaurantCard !== '') {
