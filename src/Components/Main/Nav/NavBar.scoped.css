@@ -266,6 +266,7 @@
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
+  transition: .2s; 
   transform: translate(-50%, -50%);
   box-shadow: inset .3vw -.3vw .3vw #5050504d,
               inset -.3vw .3vw .3vw #e0e0e04d,
