@@ -12,7 +12,6 @@ const Menu = () => {
   }
 
   const handleClick = () => {
-    debugger
     if (document.getElementsByClassName("burger-menu")[0]){
       document.getElementsByClassName("burger-menu")[0].className = "burger-menu--selected"
     }
