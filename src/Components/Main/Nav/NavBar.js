@@ -5,13 +5,13 @@ import FindFriends from './FriendsSearch/FindFriends'
 import Location from './Location'
 import Recents from './Recents'
 
-const NavBar = () => {
+const NavBar = (props) => {
   const user = JSON.parse(localStorage.currentUser)
 
   return (
     <div className="navbar">
       <div className="middle">
-        <FindFriends />
+        <FindFriends handleSelectedFriend={props.handleSelectedFriend}/>
         <Recents />
         <Location />
         <img className="button button-img" src={user.profile_img_url} />               
