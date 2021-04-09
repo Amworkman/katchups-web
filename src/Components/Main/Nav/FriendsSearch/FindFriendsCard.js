@@ -26,10 +26,14 @@ const FindFriendsCard = (props) => {
   return users.map( user => <
     User
       key={user.id}
+      id={user.id}
       name={user.name} 
       img={user.profile_img_url}
       location={user.location}
       email={user.email}
+      handleSelectedFriend={props.handleSelectedFriend}
+      handleBlur={props.handleBlur}
+      confirmed={false}
   />)
 }
 
