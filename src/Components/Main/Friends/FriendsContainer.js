@@ -47,6 +47,7 @@ const FriendsContainer = (props) => {
         location={friend.location}
         email={friend.email}
         handleSelectedFriend={props.handleSelectedFriend}
+        confirmed={true}
     />)
   }
 
