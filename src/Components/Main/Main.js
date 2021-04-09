@@ -73,7 +73,7 @@ const Main = () => {
         {state.restaurantCard}
         <Menu />
       </div>
-      <NavBar />
+      <NavBar handleSelectedFriend={handleSelectedFriend}/>
     </div>
   );
 };
