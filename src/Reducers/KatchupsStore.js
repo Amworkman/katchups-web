@@ -2,6 +2,7 @@ const KatchupsStore = ( state = {
   restaurants: [],
   friends: [],
   users: [],
+  friendRequests: [],
   updated: false,
   loading: false,
   loadingFriends: false,
@@ -18,6 +19,11 @@ const KatchupsStore = ( state = {
       return {
         ...state,
         loadingFriends: true
+      }
+      case 'LOADING_FRIEND_REQUESTS':
+      return {
+        ...state,
+        loadingFriendRequests: true
       }
       case 'LOADING_USERS':
       return {
@@ -56,6 +62,12 @@ const KatchupsStore = ( state = {
       return {
         ...state,
         friends: action.friends,
+        loading: false
+      }
+      case 'GET_FRIEND_REQUESTS':
+      return {
+        ...state,
+        friendRequests: action.friendRequests,
         loading: false
       }
     default:
