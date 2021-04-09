@@ -1,9 +1,10 @@
 import React, { useReducer }  from 'react';
 import './FriendsContainer.scoped.css'
 import { useEffect } from 'react';
-import { fetchFriends } from '../../../Actions/FriendActions'
+import { fetchFriends, fetchFriendRequests } from '../../../Actions/FriendActions'
 import { useDispatch, useSelector } from "react-redux";
 import Friend from './Friend';
+import { friendRequest } from '../../../Actions/UserActions';
 
 const initialState = {
   search: ''  
@@ -19,10 +20,13 @@ function reducer(state, { name, value }) {
 const FriendsContainer = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const storeDispatch = useDispatch()
-  const friends = useSelector(state => state.friends)
+  const friends = useSelector(state => state.friends) 
+  const friendRequests = useSelector(state => state.friendRequests)
+  const allFriends = [].concat(friends, friendRequests)
   const parsedFriends = []
 
   useEffect(() => {
+    storeDispatch(fetchFriendRequests());    
     storeDispatch(fetchFriends());    
   }, [storeDispatch])
 
@@ -31,13 +35,22 @@ const FriendsContainer = (props) => {
   }
 
   const searchFriendList = (friend) => {
-    if (friend.name.toLowerCase().includes(state.search.toLowerCase())){
-      parsedFriends.push(friend)
+    let user = ""
+    if (friend.friend) {
+      user = friend.friend
+      user.status = "friend"
+    }else if (friend.request) {
+      user = friend.request
+      user.status = "request"
     }
+    if (user.name.toLowerCase().includes(state.search.toLowerCase())){
+      parsedFriends.push(user)
+    }
+   
   }
 
   const renderFriends = (props) => {
-    friends.filter(searchFriendList)
+    allFriends.filter(searchFriendList)
     return parsedFriends.map( friend => <
       Friend
         key={friend.id}
@@ -48,6 +61,7 @@ const FriendsContainer = (props) => {
         email={friend.email}
         handleSelectedFriend={props.handleSelectedFriend}
         confirmed={true}
+        status={friend.status}
     />)
   }
 
