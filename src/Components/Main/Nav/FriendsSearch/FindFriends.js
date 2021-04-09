@@ -11,7 +11,7 @@ function reducer(state, { name, value }) {
   }
 }
 
-const FindFriends = () => {  
+const FindFriends = (props) => {  
 
   const defaultText = "find friends"
   const defaultLength = 13 + "ch"
@@ -59,7 +59,7 @@ const FindFriends = () => {
     return (
       <>
         <form onSubmit={handleSubmit}><input type="text" style={{width: searchLength}} id="searchLength" name="friendsSearch"  className="button button-find"  onChange={handleChange.bind(this)} onFocus={handleClearField} onBlur={handleResetField} placeholder="ENTER NAME" value={friendsSearch}></input></form>
-        <FindFriendsCard users={users} handleBlur={handleBlur}/>
+        <FindFriendsCard users={users} handleSelectedFriend={props.handleSelectedFriend} handleBlur={handleBlur}/>
       </>
     );
   } else if (state.showCard === false) {
