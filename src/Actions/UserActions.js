@@ -28,10 +28,29 @@ export const searchUsers = (friendSearch) => {
       "content-type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("token"),
       }
-  }).then(resp => {
-    return resp.json()
-  }).then(data => {
-    dispatch({ type: 'GET_USERS', users: data })
-  }).catch(err => console.log(err));
+    }).then(resp => {
+      return resp.json()
+    }).then(data => {
+      dispatch({ type: 'GET_USERS', users: data })
+    }).catch(err => console.log(err));
+  }
+}
+
+export const friendRequest = (userID, friendID) => {
+  return async (dispatch) => {
+    dispatch({ type: 'LOADING'})
+    await fetch (`http://localhost:3000/relationships`,{ 
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({user_id: userID, friend_id: friendID})
+    }).then(resp => {
+      return resp.json()
+    }).then(data => {
+      dispatch({ type: 'GET_USERS', users: data })
+    }).catch(err => console.log(err));
   }
 }
