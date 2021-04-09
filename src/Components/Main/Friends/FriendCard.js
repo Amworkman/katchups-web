@@ -4,7 +4,6 @@ import './FriendsContainer.scoped.css'
 
 
 const FriendCard = (props) => {
-  debugger
   let fitText = document.getElementById("fitText")
   
   const changeText = () => {
