@@ -1,18 +1,33 @@
 import React from 'react';
 import './FriendsContainer.scoped.css'
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from "react-redux"
+import { friendRequest } from "../../../Actions/UserActions"
 
 const FriendCard = (props) => {
   let fitText = document.getElementById("fitText")
+  const storeDispatch = useDispatch()
+
+  const handleKatchup = () => {
+
+  }
   
+  const handleAddFriend = () => {
+    const userID = JSON.parse(localStorage.currentUser).id
+    const friendID = props.friend.id
+    storeDispatch(friendRequest(userID, friendID))
+  }
+
   const changeText = () => {
     fitText.innerText = props.friend.name
   }
 
-  if (props.friend.confirmed == false)
-  // TODO: change button 
-  // style and function depending on .confirmed value
+  let button = <button className="katchupButton" onClick={handleKatchup}> katchup </button>
+
+  if (props.friend.confirmed == false){
+    button = <button className="katchupButton" style={{backgroundColor: "#5387e7"}} onClick={handleAddFriend}> <FontAwesomeIcon icon={faUserFriends} /> </button>
+  }  
 
   return (
     <>
@@ -27,7 +42,7 @@ const FriendCard = (props) => {
             no recent katchups
           </div>
           <div className="cardInner-right">
-            <button className="katchupButton"> katchup </button>
+            {button}
           </div>
         </div>
       </div>
