@@ -1,21 +1,62 @@
-import React from 'react';
+import React, {useReducer, useEffect} from 'react';
 import './FriendsContainer.scoped.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { faUserFriends, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from "react-redux"
 import { friendRequest } from "../../../Actions/UserActions"
+import { acceptFriendRequest, rejectFriendRequest, fetchFriends, fetchFriendRequests } from "../../../Actions/FriendActions"
+
+const initialState = {
+  acceptButton: "",
+  rejectButton: ""
+}
+
+function reducer(state, { name, value }) {
+  return {
+    ...state,
+    [name]: value
+  }
+}
 
 const FriendCard = (props) => {
+  const userID = JSON.parse(localStorage.currentUser).id
+  const friendID = props.friend.id
+  const listFriend = document.getElementById(`listFriend${friendID}`)
+
+  
+
+  const [state, dispatch] = useReducer(reducer, initialState);
   let fitText = document.getElementById("fitText")
   const storeDispatch = useDispatch()
 
   const handleKatchup = () => {
 
   }
+
+  useEffect(() => {
+		if ( props.friend.status === "request" ) {
+      dispatch({name: 'acceptButton', value: <button className="acceptButton" onClick={handleAccept}> <FontAwesomeIcon icon={faCheck} /> </button>})
+      dispatch({name: 'rejectButton', value: <button className="rejectButton" onClick={handleReject}> <FontAwesomeIcon icon={faTimes} /> </button>})
+    }
+	}, [storeDispatch]);
+
+  const handleAccept = () => {
+    dispatch({name: 'acceptButton', value: ""})
+    dispatch({name: 'rejectButton', value:""}) 
+    storeDispatch(acceptFriendRequest(userID, friendID))    
+    storeDispatch(fetchFriends());
+    storeDispatch(fetchFriendRequests());    
+    props.friend.refreshFriendsList()
+  }
+
+  const handleReject = () => {
+    dispatch({name: 'acceptButton', value: ""})
+    dispatch({name: 'rejectButton', value:""})
+    storeDispatch(rejectFriendRequest(userID, friendID))  
+    listFriend.remove()  
+  }
   
   const handleAddFriend = () => {
-    const userID = JSON.parse(localStorage.currentUser).id
-    const friendID = props.friend.id
     storeDispatch(friendRequest(userID, friendID))
   }
 
@@ -27,7 +68,7 @@ const FriendCard = (props) => {
 
   if (props.friend.confirmed == false){
     button = <button className="katchupButton" style={{backgroundColor: "#5387e7"}} onClick={handleAddFriend}> <FontAwesomeIcon icon={faUserFriends} /> </button>
-  }  
+  }
 
   return (
     <>
@@ -45,7 +86,10 @@ const FriendCard = (props) => {
             {button}
           </div>
         </div>
+         
       </div>
+      {state.acceptButton}
+      {state.rejectButton} 
     </>
   );
 };
