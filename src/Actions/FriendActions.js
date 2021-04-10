@@ -33,3 +33,29 @@ export const fetchFriendRequests = () => {
     })
   }
 }
+
+export const acceptFriendRequest = (userID, pendingID) => {
+  return () => {
+    fetch(`http://localhost:3000/relationships/${userID}`,{
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token")
+      },
+      body: (`{ "user_id": ${userID}, "friend_id": ${pendingID}, "confirmed":"true"}`)
+    })
+  }
+}
+
+export const rejectFriendRequest = (userID, pendingID) => {
+  return () => {
+    fetch(`http://localhost:3000/delete_pending`,{
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token")
+      },
+      body: (`{ "user_id":${userID}, "friend_id":${pendingID}}`)
+    })
+  }
+}
