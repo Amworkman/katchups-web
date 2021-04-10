@@ -170,7 +170,7 @@
 }
 
 .listImg-outer:hover {
-  background-color: #ac3737e1;
+  background-color: #618fe6;
   
 }
 
@@ -179,7 +179,7 @@
   display: block;
   width: 6.1vw;
   height: 6.1vw;
-  background-color: #ac3737e1;
+  background-color: #618fe6;
   text-align: center;
   align-content: center;
   align-items: center;
@@ -216,9 +216,9 @@
   position: flex;
   width: 11vw;
   height: 11vw;
-  border-radius: 50%;
+  border-radius: 20px;
   font-family: Righteous;
-  color: white;
+  color: #d6d6d6;
   font-size: 2vw;
   transition: 0.8s;
   cursor: pointer;
@@ -231,7 +231,7 @@
 }
 
 .katchupButton:hover {
-  background-color: #b44545;
+  color: #ffffff;
   font-size: 2.01vw;
   box-shadow:  -.2vw .2vw 1vw #4b4b4b,
              .2vw -.2vw 1vw #ffffff,
@@ -240,7 +240,7 @@
 }
 
 .katchupButton:focus {
-  background-color: #b44545;
+  color: #ffffff;
   font-size: 1.99vw;
   border: none;
   outline: none;
