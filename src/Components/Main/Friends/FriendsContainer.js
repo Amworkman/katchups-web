@@ -1,34 +1,37 @@
-import React, { useReducer }  from 'react';
+import React, { useReducer, useState, useEffect }  from 'react';
 import './FriendsContainer.scoped.css'
-import { useEffect } from 'react';
 import { fetchFriends, fetchFriendRequests } from '../../../Actions/FriendActions'
 import { useDispatch, useSelector } from "react-redux";
 import Friend from './Friend';
-import { friendRequest } from '../../../Actions/UserActions';
-
-const initialState = {
-  search: ''  
-}
-
-function reducer(state, { name, value }) {
-  return {
-    ...state,
-    [name]: value
-  }
-}
 
 const FriendsContainer = (props) => {
+  
+
+  const initialState = {
+    search: '',
+    friends: useSelector(state => state.friends),
+    friendRequests: useSelector(state => state.friendRequests)
+  }
+  
+  function reducer(state, { name, value }) {
+    return {
+      ...state,
+      [name]: value
+    }
+  }
+
   const [state, dispatch] = useReducer(reducer, initialState);
   const storeDispatch = useDispatch()
   const friends = useSelector(state => state.friends) 
   const friendRequests = useSelector(state => state.friendRequests)
   const allFriends = [].concat(friends, friendRequests)
   const parsedFriends = []
+  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    storeDispatch(fetchFriendRequests());    
-    storeDispatch(fetchFriends());    
-  }, [storeDispatch])
+  useEffect(() => {        
+    storeDispatch(fetchFriends());
+    storeDispatch(fetchFriendRequests());
+  }, [count])
 
   const handleChange = (e) => {
     dispatch({name: e.target.name, value: e.target.value})
@@ -47,7 +50,9 @@ const FriendsContainer = (props) => {
       parsedFriends.push(user)
     }
    
-  }
+  }  
+
+  const refreshFriendsList = () => setCount(count + 1);
 
   const renderFriends = (props) => {
     allFriends.filter(searchFriendList)
@@ -62,6 +67,7 @@ const FriendsContainer = (props) => {
         handleSelectedFriend={props.handleSelectedFriend}
         confirmed={true}
         status={friend.status}
+        refreshFriendsList={refreshFriendsList}
     />)
   }
 
@@ -70,7 +76,7 @@ const FriendsContainer = (props) => {
       <input type="text" id="friend-search" name="search" className="search" value={state.search} onChange={handleChange} placeholder="Search Friends" />
       <div className="box-fade box-fade-top"/>
       <div className='friend-container'>        
-        {renderFriends(props)}   
+        {renderFriends(props, state.friends)} 
       </div>
       <div className="box-fade box-fade-bottom"/>
     </div>
