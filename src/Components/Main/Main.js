@@ -10,7 +10,7 @@ import Menu from "./Nav/Menu"
 const initialState = {
   search: '',
   friendCard: '',
-  restaurantCard: '',
+  restaurantCard: ''
 }
 
 function reducer(state, { name, value }) {
@@ -20,15 +20,35 @@ function reducer(state, { name, value }) {
   }
 }
 
-const Main = () => {
-  function handleClickOutside(event, st, ref) {
-    if (ref.current && !ref.current.contains(event.target)) {
-      if (state.friendCard !== '') {
-        dispatch({name: 'friendCard', value: ''})
+const Main = () => { 
+
+  const wrapperRef = useRef(null);  
+  const [state, dispatch] = useReducer(reducer, initialState);
+  document.addEventListener("mouseup",(e) => handleClickOutside(e, wrapperRef)); 
+
+  const handleSelectedFriend = (props) => {
+    dispatch({name: 'friendCard', value: <FriendCard friend={props}/>})
+  }
+
+  const handleSelectedRestaurant = (props) => {
+    dispatch({name: 'restaurantCard', value: <RestaurantCard restaurant={props}/>})
+  }
+
+  if(localStorage.currentUser === undefined || localStorage.currentUser === "undefined" ){
+    window.location="/login"
+  }
+  function handleClickOutside(event, ref) {
+    if (ref.current && !ref.current.contains(event.target)) {      
+      if (state.friendCard !== '') {        
         if (document.getElementsByClassName("listImg-outer--selected")[0]){
           const selectedFriend = document.getElementsByClassName("listImg-outer--selected")[0]
           selectedFriend.className = state.friendCard.props.friend.status + " listImg-outer"
         }
+
+        dispatch({name: 'friendCard', value: ''})
+        state.friendCard = ""
+
+        //TODO fix state issue? ^^ dispatch returns unknown. State remains the same. Both lines are required for intended functionality...
       }
       if (state.restaurantCard !== '') {
         dispatch({name: 'restaurantCard', value: ''})
@@ -46,21 +66,6 @@ const Main = () => {
         fitText.innerText = "katchups" 
       }             
     }
-  }
-
-  const wrapperRef = useRef(null);  
-  const [state, dispatch] = useReducer(reducer, initialState);
-  document.addEventListener("mouseup",(e) => handleClickOutside(e, state, wrapperRef)); 
-  const handleSelectedFriend = (props) => {
-    dispatch({name: 'friendCard', value: <FriendCard friend={props}/>})
-  }
-
-  const handleSelectedRestaurant = (props) => {
-    dispatch({name: 'restaurantCard', value: <RestaurantCard restaurant={props}/>})
-  }
-
-  if(localStorage.currentUser === undefined || localStorage.currentUser === "undefined" ){
-    window.location="/login"
   }
 
   return (
