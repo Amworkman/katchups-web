@@ -1,21 +1,20 @@
-import React  from 'react';
+import React, { useState } from 'react';
 import './FriendsContainer.scoped.css'
 
 
-
-const Friend = (props) => {  
+const Friend = (props) => { 
 
   const handleSelectedFriend = (props) => {
     props.handleSelectedFriend(props)
-    document.getElementById(`friend${props.id}`).className = "listImg-outer--selected"
-  }
+    document.getElementById(`friend${props.id}`).className = "listImg-outer--selected"    
+  } 
 
   return (
-    <div>
+    <div id={`listFriend${props.id}`}>
       <div className={props.status + " listImg-outer"} id={`friend${props.id}`}>
-        <div onClick={() => handleSelectedFriend(props)} className="listImg-inner"></div>
-        <img className="list-img" src={props.img} /><br />        
-      </div>
+        <div onClick={() => handleSelectedFriend(props)} className="listImg-inner"/>
+        <img className="list-img" src={props.img} /><br />     
+      </div>      
       <h2>{props.name}</h2> 
     </div>
   );
