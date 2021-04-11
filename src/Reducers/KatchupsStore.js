@@ -15,6 +15,11 @@ const KatchupsStore = ( state = {
         ...state,
         loading: true
       } 
+      case 'DONE':
+      return {
+        ...state,
+        loading: false
+      }
       case 'LOADING_FRIENDS':
       return {
         ...state,
