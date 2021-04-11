@@ -9,8 +9,6 @@ const FriendsContainer = (props) => {
 
   const initialState = {
     search: '',
-    friends: useSelector(state => state.friends),
-    friendRequests: useSelector(state => state.friendRequests)
   }
   
   function reducer(state, { name, value }) {
@@ -20,19 +18,28 @@ const FriendsContainer = (props) => {
     }
   }
 
+
   const [state, dispatch] = useReducer(reducer, initialState);
   const storeDispatch = useDispatch()
   const friends = useSelector(state => state.friends) 
   const friendRequests = useSelector(state => state.friendRequests)
-  const allFriends = [].concat(friends, friendRequests)
   const parsedFriends = []
-  const [count, setCount] = useState(0);
+  const [allFriends, setAllFriends] = useState([])
 
-  useEffect(() => {        
+  const fetchAllFriends = (props) => {
     storeDispatch(fetchFriends());
     storeDispatch(fetchFriendRequests());
-  }, [count])
+  }
 
+  useEffect(() => {
+    fetchAllFriends()
+  }, [])
+
+  useEffect(() => { 
+    setAllFriends([].concat(friends, friendRequests))    
+  }, [friends, friendRequests])
+
+ 
   const handleChange = (e) => {
     dispatch({name: e.target.name, value: e.target.value})
   }
@@ -48,11 +55,12 @@ const FriendsContainer = (props) => {
     }
     if (user.name.toLowerCase().includes(state.search.toLowerCase())){
       parsedFriends.push(user)
-    }
-   
-  }  
+    }   
+  }
 
-  const refreshFriendsList = () => setCount(count + 1);
+  const refreshFriendsList = () => {
+    fetchAllFriends()
+  }
 
   const renderFriends = (props) => {
     allFriends.filter(searchFriendList)
@@ -67,7 +75,7 @@ const FriendsContainer = (props) => {
         handleSelectedFriend={props.handleSelectedFriend}
         confirmed={true}
         status={friend.status}
-        refreshFriendsList={refreshFriendsList}
+        refreshFriendsList={() => refreshFriendsList()}
     />)
   }
 
@@ -75,8 +83,8 @@ const FriendsContainer = (props) => {
     <div className='right-container'>
       <input type="text" id="friend-search" name="search" className="search" value={state.search} onChange={handleChange} placeholder="Search Friends" />
       <div className="box-fade box-fade-top"/>
-      <div className='friend-container'>        
-        {renderFriends(props, state.friends)} 
+      <div className='friend-container'>       
+        {renderFriends(props)}
       </div>
       <div className="box-fade box-fade-bottom"/>
     </div>
