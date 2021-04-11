@@ -1,7 +1,7 @@
 export const fetchFriends = () => {
-  return (dispatch) => {
+  return async(dispatch) => {
     dispatch({ type: 'LOADING_FRIENDS'})
-    fetch(`http://localhost:3000/friends`,{
+    await fetch(`http://localhost:3000/friends`,{
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -17,9 +17,9 @@ export const fetchFriends = () => {
 }
 
 export const fetchFriendRequests = () => {
-  return (dispatch) => {
+  return async(dispatch) => {
     dispatch({ type: 'LOADING_PENDING'})
-    fetch(`http://localhost:3000/friends/requests`,{
+    await fetch(`http://localhost:3000/friends/requests`,{
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -35,8 +35,9 @@ export const fetchFriendRequests = () => {
 }
 
 export const acceptFriendRequest = (userID, pendingID) => {
-  return () => {
-    fetch(`http://localhost:3000/relationships/${userID}`,{
+  return async(dispatch) => {
+    dispatch({ type: 'LOADING'})
+    await fetch(`http://localhost:3000/relationships/${userID}`,{
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -44,12 +45,17 @@ export const acceptFriendRequest = (userID, pendingID) => {
       },
       body: (`{ "user_id": ${userID}, "friend_id": ${pendingID}, "confirmed":"true"}`)
     })
+    .then(resp => {
+      return resp.json()      
+    }).then(data => {
+      dispatch({ type: 'DONE' })
+    })
   }
 }
 
 export const rejectFriendRequest = (userID, pendingID) => {
-  return () => {
-    fetch(`http://localhost:3000/delete_pending`,{
+  return async() => {
+    await fetch(`http://localhost:3000/delete_pending`,{
       method: "DELETE",
       headers: {
         "content-type": "application/json",
