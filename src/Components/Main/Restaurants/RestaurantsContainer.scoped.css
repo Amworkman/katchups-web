@@ -198,6 +198,11 @@
               .2vw -.2vw .5vw #c0c0c03d;
 }
 
+.stars-img {
+  width: 6vw; 
+  cursor: pointer;
+}
+
 .recents {
   position: relative;
   display: flex;
