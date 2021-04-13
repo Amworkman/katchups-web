@@ -36,7 +36,7 @@ const FriendsContainer = (props) => {
   }, [])
 
   useEffect(() => { 
-    setAllFriends([].concat(friends, friendRequests))    
+    setAllFriends([].concat(friendRequests, friends))    
   }, [friends, friendRequests])
 
  
