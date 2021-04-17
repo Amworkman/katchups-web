@@ -40,6 +40,7 @@ const RestaurantsContainer = (props) => {
   }
 
 	const renderRestaurants = (props) => {
+		debugger
 		restaurants.filter(searchRestaurantList)
 		return parsedRestaurants.map((restaurant) => ( <
       Restaurant
@@ -51,6 +52,10 @@ const RestaurantsContainer = (props) => {
 				location={restaurant.location}
 				categories={restaurant.categories}
 				img={restaurant.image_url}
+				phone={restaurant.display_phone}
+				url={restaurant.url}
+				reviewCount={restaurant.review_count}
+				closed={restaurant.is_closed}
 				handleSelectedRestaurant={props.handleSelectedRestaurant}
 			/>
 		));
