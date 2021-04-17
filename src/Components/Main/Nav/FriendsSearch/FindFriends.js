@@ -26,13 +26,11 @@ const FindFriends = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { friendsSearch, searchLength } = state
   const users = useSelector(state => state.users)
-  const loading = useSelector(state => state.loading)  
 
   const handleSubmit = (e) => {
      e.preventDefault()
-     storeDispatch(searchUsers(friendsSearch))
-     dispatch({name: 'showCard', value: true})
-    }
+     storeDispatch(searchUsers(friendsSearch)).then(() => {dispatch({name: 'showCard', value: true})
+  })}
 
   const handleClearField = (e) => {
     dispatch({name: e.target.name, value: ""})
@@ -55,7 +53,7 @@ const FindFriends = (props) => {
   }
 
   if (state.showCard === true){
-  
+  debugger
     return (
       <>
         <form onSubmit={handleSubmit}><input type="text" style={{width: searchLength}} id="searchLength" name="friendsSearch"  className="button button-find"  onChange={handleChange.bind(this)} onFocus={handleClearField} onBlur={handleResetField} placeholder="ENTER NAME" value={friendsSearch}></input></form>
