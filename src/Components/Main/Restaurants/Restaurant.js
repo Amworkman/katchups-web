@@ -46,7 +46,9 @@ const Restaurant = (props) => {
       </div>
       <h2>{props.name}</h2> <br/>
       {props.categories.map(category => category.title).join(', ')}<br /> <br/>
-      <img className="stars-img" src={renderYelpStars(props)} alt="stars"/>   
+      <a href={props.url} target="_blank">
+        <img className="stars-img" src={renderYelpStars(props)} alt="stars"/>   
+      </a>
     </div>
   );
 };
