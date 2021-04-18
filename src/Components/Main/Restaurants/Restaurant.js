@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './RestaurantsContainer.scoped.css';
 
 const Restaurant = (props) => {
-  const [stars, setStars] = useState(null)
-
   const handleSelectedRestaurant = (props) => {
     props.handleSelectedRestaurant(props)
     document.getElementById(`restaurant${props.id}`).className = "listImg-outer--selected"
@@ -46,7 +44,7 @@ const Restaurant = (props) => {
       </div>
       <h2>{props.name}</h2> <br/>
       {props.categories.map(category => category.title).join(', ')}<br /> <br/>
-      <a href={props.url} target="_blank">
+      <a href={props.url} target="_blank" rel="noreferrer">
         <img className="stars-img" src={renderYelpStars(props)} alt="stars"/>   
       </a>
     </div>

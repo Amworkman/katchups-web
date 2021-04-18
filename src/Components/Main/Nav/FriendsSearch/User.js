@@ -11,7 +11,7 @@ const User = (props) => {
     <div className="user">
       <div className="listImg-outer">
         <div className="listImg-inner" onClick={() => handleSelectedFriend(props)}></div> <br />
-        <img className="list-img" src={props.img} /><br />     
+        <img className="list-img" alt="" src={props.img} /><br />     
       </div>
       <h2>{props.name}</h2>  
     </div>

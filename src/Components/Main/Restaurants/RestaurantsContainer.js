@@ -40,7 +40,6 @@ const RestaurantsContainer = (props) => {
   }
 
 	const renderRestaurants = (props) => {
-		debugger
 		restaurants.filter(searchRestaurantList)
 		return parsedRestaurants.map((restaurant) => ( <
       Restaurant

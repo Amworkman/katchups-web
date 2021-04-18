@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import { searchUsers } from '../../../../Actions/UserActions';
 import { useDispatch, useSelector } from "react-redux";
 import FindFriendsCard from "./FindFriendsCard"
@@ -53,7 +53,6 @@ const FindFriends = (props) => {
   }
 
   if (state.showCard === true){
-  debugger
     return (
       <>
         <form onSubmit={handleSubmit}><input type="text" style={{width: searchLength}} id="searchLength" name="friendsSearch"  className="button button-find"  onChange={handleChange.bind(this)} onFocus={handleClearField} onBlur={handleResetField} placeholder="ENTER NAME" value={friendsSearch}></input></form>

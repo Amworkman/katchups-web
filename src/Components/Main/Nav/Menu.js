@@ -19,7 +19,7 @@ const Menu = () => {
 
   return (
     <div className="burger-menu" onClick={handleClick}>
-      <img className="button button-burger" src='burger.png' /> 
+      <img className="button button-burger" src='burger.png' alt=""/> 
       <input type="button" id="logout-btn" name="logout-btn" onClick={handleLogout} className="button menu-button logout" value="logout" />
       <input type="button" id="settings-btn" name="settings-btn" className="button menu-button settings" value="settings" />
       <input type="button" id="dark-btn" name="dark-btn" className="button menu-button dark" value="dark mode: off" />
