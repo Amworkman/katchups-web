@@ -203,18 +203,77 @@
   cursor: pointer;
 }
 
-.recents {
+.restaurantInfo {
   position: relative;
-  display: flex;
   width: 50%;
-  height: 107%;
-  top: -3%;
+  height: 100%;
   left: -1%;
   overflow-y: scroll;
   text-align: center;
   justify-content: center;
-  align-items:center;
-  
+  align-items:center; 
+  flex-direction: column; 
+}
+.restaurantInfoInner {
+  position: absolute;
+  margin-top: .5vw;
+  width: 100%;
+  height: 50%;
+  justify-self: center;
+  text-align: center;
+}
+.price{
+  position: absolute;
+  color: #6cbe5e85;
+  font-size: 2vw;
+  text-shadow: inset -.2vw .2vw .1vw #7a7a7a;  
+  font-family: "Londrina Solid";
+}
+
+.emptyPrice{
+  color: #1b1a1a;
+  font-size: 2vw;
+  text-shadow: inset -.2vw .2vw .1vw #7a7a7a;
+  font-family: "Londrina Shadow";       
+}
+
+.hours{
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1.3vw;
+  transition: .2s;
+  margin-top: -.8vw;
+  width: auto;
+  background-color: #c74646a4;
+  border-radius: 10px;
+}
+
+.hours:hover{
+  background-color:  #6190e6b2;
+}
+
+.yelpImg{
+  width: auto;
+  height: 2.5vw;
+  margin-left: .4vw;
+  margin-top: -.3vw;
+  margin-right: -.5vw;
+  cursor: pointer;
+}
+
+.reviews{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items:center; 
+  font-size: 1.5vw;
+  margin-top: .3vw;
+}
+
+.yelp-burst{
+  width: auto;
+  height: 1.3vw;
+  margin-left: .5vw;
 }
 
 .katchupButton {
@@ -345,6 +404,44 @@ h2{
   padding: 0px 0px 0px 0px;
   font-size: 1vw;
   font-family: Helvetica;
+}
+
+h3{
+  position: relative;
+  top: 1px;
+  margin: 5px 0px 0px 0px; 
+  padding: 0px 0px 0px 0px;
+  font-size: 1.3vw;
+  font-family: Helvetica;
+  font-weight: bolder;
+}
+
+h4{
+  align-self: center;
+  margin: 6px 0px 0px 0px; 
+  padding: 0px 0px 0px 0px;
+  font-size: 1vw;
+  font-family: Helvetica;
+}
+
+a:link {
+  text-decoration: none;
+  color: #e4e4e4;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #e4e4e4;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #e4e4e4;
+}
+
+a:active {
+  text-decoration: none;
+  color: #e4e4e4;
 }
 
 @keyframes fadeUp {
