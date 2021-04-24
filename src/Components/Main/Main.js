@@ -21,13 +21,14 @@ function reducer(state, { name, value }) {
 }
 
 const Main = () => { 
-
   const wrapperRef = useRef(null);  
   const [state, dispatch] = useReducer(reducer, initialState);
   document.addEventListener("mouseup",(e) => handleClickOutside(e, wrapperRef)); 
 
   const handleSelectedFriend = (props) => {
     dispatch({name: 'friendCard', value: <FriendCard friend={props}/>})
+    debugger
+    document.getElementById("fitText").innerText = props.name
   }
 
   const handleSelectedRestaurant = (props) => {
