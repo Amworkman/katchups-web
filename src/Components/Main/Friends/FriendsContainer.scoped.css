@@ -111,6 +111,14 @@
               .3vw -.3vw .6vw #c0c0c03d;  
 }
 
+.datePicker{
+  font-size: 100px;
+}
+
+.listImg-outer--transparent {  
+  background: transparent;
+}
+
 .friend {
   background-color: transparent;
 }
@@ -378,6 +386,29 @@
 
 }
 
+.katchupCard{
+  position: absolute;
+  display: block;    
+  background-color: #e4e4e4;
+  height: 30%;
+  width: 48%;
+  text-align: center; 
+  align-content: center;   
+  align-items: center;
+  justify-content: center;
+  padding: .5vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;  
+  animation: fadeUpKatchup 1s;
+  animation-delay: .3s; 
+  opacity: 1;
+  animation-fill-mode: forwards;   
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 10vh;
+} 
+
 .card{
   position: absolute;
   display: block;    
@@ -441,11 +472,16 @@ h2{
 }
 
 @keyframes fadeUp {
-  from {top: 75vh;opacity: 0;}
-  to {top: 60vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
+  from {bottom: -10vh;opacity: 0;}
+  to {bottom: 10vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
                               1.5vw -1.5vw 3vw #953838,
                               inset .05vw -.2vw .2vw #b8b8b8,
                               inset -.05vw .2vw .2vw #fbfbfb; opacity: 1}
+}
+
+@keyframes fadeUpKatchup {
+  from {height: 30%;}
+  to {height: 75%; }
 }
 
 @keyframes fadeLeft {
