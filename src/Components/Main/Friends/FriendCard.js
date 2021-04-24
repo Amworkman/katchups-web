@@ -1,10 +1,12 @@
-import React, {useReducer, useEffect} from 'react';
+import React, {useReducer, useEffect, useState} from 'react';
 import './FriendsContainer.scoped.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserFriends, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from "react-redux"
 import { friendRequest } from "../../../Actions/UserActions"
 import { acceptFriendRequest, rejectFriendRequest } from "../../../Actions/FriendActions"
+import DatePicker from "./Katchups/DatePicker"
+import InfoCard from "./InfoCard"
 
 const initialState = {
   acceptButton: "",
@@ -21,21 +23,25 @@ function reducer(state, { name, value }) {
 const FriendCard = (props) => {
   const userID = JSON.parse(localStorage.currentUser).id
   const friendID = props.friend.id
-
+  const [cardState, setCardState] = useState('showCard')
   const [state, dispatch] = useReducer(reducer, initialState);
   let fitText = document.getElementById("fitText")
-  const storeDispatch = useDispatch()
-
-  const handleKatchup = () => {
-
-  }
+  const storeDispatch = useDispatch()  
 
   useEffect(() => {
 		if ( props.friend.status === "request" ) {
       dispatch({name: 'acceptButton', value: <button className="acceptButton" onClick={handleAccept}> <FontAwesomeIcon icon={faCheck} /> </button>})
       dispatch({name: 'rejectButton', value: <button className="rejectButton" onClick={handleReject}> <FontAwesomeIcon icon={faTimes} /> </button>})
     }
-	});
+  });
+  
+  const handleKatchup = () => {
+    fitText.innerText = ""
+    document.getElementById("friendImg").innerHTML = ""  
+    document.getElementById("friendImg").className = "friendImg-outer--transparent"
+    document.getElementById("friendCard").className ="katchupCard" 
+    setCardState("showDatePicker")  
+  }
 
   const handleAccept = () => {
     dispatch({name: 'acceptButton', value: ""})
@@ -67,19 +73,18 @@ const FriendCard = (props) => {
 
   return (
     <>
-      {changeText()}
-      <div className="friendImg-outer">
+      <div id="friendImg" className="friendImg-outer">
         <div className="friendImg-inner"></div>
         <img  className="friendImg" src={props.friend.img} alt="firend"/><br />        
       </div>
-      <div className="card">
-        <div className="cardInner">
-          <div className="recents">
-            no recent katchups
-          </div>
-          <div className="cardInner-right">
-            {button}
-          </div>
+      <div className="card" id="friendCard">
+        <div className="cardInner" id="cardInner">
+        {cardState === 'showDatePicker' && (
+          <DatePicker />
+        )}
+        {cardState === 'showCard' && (
+          <InfoCard handleKatchup={handleKatchup}/>      
+        )}          
         </div>         
       </div>
       {state.acceptButton}
