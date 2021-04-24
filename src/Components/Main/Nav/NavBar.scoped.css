@@ -42,6 +42,7 @@
   top: 350px;
   width: 45px;
   height: 45px;
+  cursor: pointer;
 }
 
 .button-username{
