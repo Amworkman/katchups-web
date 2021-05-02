@@ -26,7 +26,8 @@ const FriendCard = (props) => {
   const [cardState, setCardState] = useState('showCard')
   const [state, dispatch] = useReducer(reducer, initialState);
   let fitText = document.getElementById("fitText")
-  const storeDispatch = useDispatch()  
+  const storeDispatch = useDispatch()
+  
 
   useEffect(() => {
 		if ( props.friend.status === "request" ) {
@@ -37,6 +38,8 @@ const FriendCard = (props) => {
   
   const handleKatchup = () => {
     fitText.innerText = ""
+    const datePickerBox = document.getElementById("datePickerBox");  
+    datePickerBox.classList.toggle("datePickerBox-active");
     document.getElementById("friendImg").innerHTML = ""  
     document.getElementById("friendImg").className = "friendImg-outer--transparent"
     document.getElementById("friendCard").className ="katchupCard" 
@@ -61,10 +64,6 @@ const FriendCard = (props) => {
     storeDispatch(friendRequest(userID, friendID))
   }
 
-  const changeText = () => {
-    fitText.innerText = props.friend.name
-  }
-
   let button = <button className="katchupButton" onClick={handleKatchup}> katchup </button>
 
   if (props.friend.confirmed === false){
@@ -73,13 +72,15 @@ const FriendCard = (props) => {
 
   return (
     <>
+    
       <div id="friendImg" className="friendImg-outer">
         <div className="friendImg-inner"></div>
         <img  className="friendImg" src={props.friend.img} alt="firend"/><br />        
       </div>
       <div className="card" id="friendCard">
         <div className="cardInner" id="cardInner">
-        {cardState === 'showDatePicker' && (
+        <div id="datePickerBox" className="datePickerBox-hidden"><div id="datepicker"></div></div>
+        {cardState === 'showDatePicker' && (          
           <DatePicker />
         )}
         {cardState === 'showCard' && (
