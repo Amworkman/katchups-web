@@ -12,9 +12,7 @@ const Menu = () => {
   }
 
   const handleClick = () => {
-    debugger
     if (document.getElementsByClassName("burger-menu")[0]){
-      debugger
       document.getElementsByClassName("burger-menu")[0].classList.toggle("burger-menu--selected")
     }
   }
