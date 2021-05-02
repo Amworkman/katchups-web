@@ -27,7 +27,6 @@ const Main = () => {
 
   const handleSelectedFriend = (props) => {
     dispatch({name: 'friendCard', value: <FriendCard friend={props}/>})
-    debugger
     document.getElementById("fitText").innerText = props.name
   }
 
