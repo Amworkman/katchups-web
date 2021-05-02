@@ -111,9 +111,7 @@
               .3vw -.3vw .6vw #c0c0c03d;  
 }
 
-.datePicker{
-  font-size: 100px;
-}
+
 
 .listImg-outer--transparent {  
   background: transparent;
@@ -213,6 +211,20 @@
   opacity: 0;
   animation-fill-mode: forwards;
   
+}
+
+.datePickerBox-hidden{  
+  width: 0; 
+  height: 0;
+}
+
+.datePickerBox-active{
+  display: flex;
+  width: 100%; 
+  height: 100%;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
 }
 
 .search{
