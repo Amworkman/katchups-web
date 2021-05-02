@@ -1,12 +1,18 @@
 import React from 'react';
-import '../FriendsContainer.scoped.css'
+import { MtrDatepicker } from './mtr-datepicker/dist/mtr-datepicker.min.js'
+import './mtr-datepicker/dist/mtr-datepicker.min.css'
+import './mtr-datepicker/dist/mtr-datepicker.default-theme.min.css'
 
 
-const DatePicker = () => {
-  return (
-    <div className="datePicker">      
-       
-    </div>
+const DatePicker = () => { 
+
+  let demo = new MtrDatepicker({
+    target: 'datepicker'
+  })
+
+  return (    
+    <div className='datePicker'>         
+    </div>  
   );
 };
 
