@@ -23,7 +23,7 @@ const FriendsContainer = (props) => {
   const storeDispatch = useDispatch()
   const friends = useSelector(state => state.friends) 
   const friendRequests = useSelector(state => state.friendRequests)
-  const parsedFriends = []
+  const filteredFriends = []
   const [allFriends, setAllFriends] = useState([])
 
   const fetchAllFriends = (props) => {
@@ -41,10 +41,11 @@ const FriendsContainer = (props) => {
 
  
   const handleChange = (e) => {
+    debugger
     dispatch({name: e.target.name, value: e.target.value})
   }
 
-  const searchFriendList = (friend) => {
+  const filterFriendList = (friend) => {
     let user = ""
     if (friend.friend) {
       user = friend.friend
@@ -54,7 +55,7 @@ const FriendsContainer = (props) => {
       user.status = "request"
     }
     if (user.name.toLowerCase().includes(state.search.toLowerCase())){
-      parsedFriends.push(user)
+      filteredFriends.push(user)
     }   
   }
 
@@ -63,8 +64,8 @@ const FriendsContainer = (props) => {
   }
 
   const renderFriends = (props) => {
-    allFriends.filter(searchFriendList)
-    return parsedFriends.map( friend => <
+    allFriends.filter(filterFriendList)
+    return filteredFriends.map( friend => <
       Friend
         key={friend.id}
         id={friend.id}
