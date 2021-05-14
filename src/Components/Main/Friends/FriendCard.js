@@ -1,9 +1,8 @@
 import React, {useReducer, useEffect, useState} from 'react';
 import './FriendsContainer.scoped.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserFriends, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from "react-redux"
-import { friendRequest } from "../../../Actions/UserActions"
 import { acceptFriendRequest, rejectFriendRequest } from "../../../Actions/FriendActions"
 import DatePicker from "./Katchups/DatePicker"
 import InfoCard from "./InfoCard"
@@ -59,20 +58,9 @@ const FriendCard = (props) => {
     storeDispatch(rejectFriendRequest(userID, friendID)).then(() => {
       props.friend.refreshFriendsList()
     })  }
-  
-  const handleAddFriend = () => {
-    storeDispatch(friendRequest(userID, friendID))
-  }
-
-  let button = <button className="katchupButton" onClick={handleKatchup}> katchup </button>
-
-  if (props.friend.confirmed === false){
-    button = <button className="katchupButton" style={{backgroundColor: "#5387e7"}} onClick={handleAddFriend}> <FontAwesomeIcon icon={faUserFriends} /> </button>
-  }
 
   return (
-    <>
-    
+    <>    
       <div id="friendImg" className="friendImg-outer">
         <div className="friendImg-inner"></div>
         <img  className="friendImg" src={props.friend.img} alt="firend"/><br />        
@@ -84,7 +72,7 @@ const FriendCard = (props) => {
           <DatePicker />
         )}
         {cardState === 'showCard' && (
-          <InfoCard handleKatchup={handleKatchup}/>      
+          <InfoCard handleKatchup={handleKatchup} friend={props.friend}/>      
         )}          
         </div>         
       </div>
