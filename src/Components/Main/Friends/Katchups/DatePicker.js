@@ -1,8 +1,5 @@
 import React from 'react';
-import { MtrDatepicker } from './mtr-datepicker/dist/mtr-datepicker.min.js'
-import './mtr-datepicker/dist/mtr-datepicker.min.css'
-import './mtr-datepicker/dist/mtr-datepicker.default-theme.min.css'
-
+import { MtrDatepicker } from "./mtr-datepicker.min.js"
 
 const DatePicker = () => { 
 
