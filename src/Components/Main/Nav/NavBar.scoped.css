@@ -26,14 +26,14 @@
   font-size: 1.5vw;
   font-weight: bolder;
   border-radius: 10px;
-  text-shadow: -.08vw .1vw .15vw #000000b6,
-               .08vw -.06vw .11vw #b6b6b696;
+  text-shadow: -.08vw .1vw .2vw #0000006c,
+               .08vw -.06vw .15vw #e7e7e741;
   transition: 0.5s;
   transition: text-shadow 0.5;
 }
 
 .button:hover {
-  text-shadow: .08vw .06vw .12vw rgb(0, 0, 0);
+  text-shadow: -.06vw .06vw .12vw rgb(0, 0, 0);
   color: #c7c7c7;
 }
 
