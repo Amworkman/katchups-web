@@ -220,9 +220,10 @@
 
 .datePickerBox-active{
   display: flex;
-  width: 100%; 
+  background-color: rgba(221, 221, 221, 0);
+  width: 127%; 
   height: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   justify-content: center;
   text-align: center;
 }
@@ -493,7 +494,11 @@ h2{
 
 @keyframes fadeUpKatchup {
   from {height: 30%;}
-  to {height: 75%; }
+  to {height: 75%;
+    box-shadow:  -1.5vw 1.5vw 3vw #552020,
+    1.5vw -1.5vw 3vw #953838,
+    inset .05vw -.2vw .2vw #b8b8b8,
+    inset -.05vw .2vw .2vw #fbfbfb; }
 }
 
 @keyframes fadeLeft {
