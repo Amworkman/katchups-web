@@ -1,0 +1,110 @@
+.dateBoxLeft {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(139, 53, 53);
+  box-shadow: inset -.05vw .2vw .3vw #3636365e,
+                   inset .05vw -.2vw .3vw #ebebeb60,
+                   .15vw -.1vw .5vw #3f3f3f98,
+                   -.15vw .1vw .3vw #ebebeb91;
+}
+
+.dateBoxRight {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 71%;
+  height: 78%;
+  background-color: rgb(204, 204, 206);
+  z-index: 0;
+  border-bottom-left-radius: 10px;
+  box-shadow: inset -.05vw .2vw .3vw #96959541,
+                   inset .05vw -.2vw .3vw #ebc6c6b6,
+                   .15vw -.1vw .5vw #000000,
+                   -.15vw .1vw .3vw #e48b8b81;
+}
+
+.location {
+  position: relative;
+  top: 10%;
+  height: 10%;
+  width: 30%;
+  color: white;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.button{  
+  display: flex;
+  position: absolute;    
+  background-color: #a03b3bbb;
+  color: rgb(204, 204, 206);
+  border: none;
+  outline: none;
+  padding: 1.5vw;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  border-radius: 10px;
+  box-shadow: -.08vw .1vw 1vw #2e0a0a6c,
+               .08vw -.06vw 1vw #d8707067,               
+              inset .08vw -.1vw .5vw #2e0a0a6c,
+              inset -.08vw .06vw .5vw #e4808041;
+  transition: .8s;
+}
+
+.button-location{
+  left: 25%;
+  max-width: 17ch; 
+}
+
+.button:hover {
+  box-shadow: -.08vw .1vw .5vw #2e0a0a60,
+               .08vw -.06vw .5vw #e4808041,
+               inset .08vw -.1vw .5vw #0c0a2e6c,
+              inset -.08vw .06vw .5vw #8280e441;
+  color: #c7c7c7;
+  background-color: #5177cabb;
+}
+
+.now {
+  position: absolute;
+  bottom: 30%;
+  left:2.5%;
+  cursor: pointer;
+}
+
+.setDate{
+  position: absolute;
+  bottom: 4.5%;
+  right: 4%;
+  cursor: pointer;
+}
+
+h2 {
+  position: absolute;
+  bottom: 2.5%;
+  left: 13%;
+  color: rgb(204, 204, 206)
+}
+
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 0px #000 inset;
+  -webkit-text-fill-color: white;
+  transition: background-color 99999s ease-in-out 99999s;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: 0 0 0px 0px #000 inset;
+  -webkit-text-fill-color: rgb(204, 204, 206);
+  transition: background-color 99999s ease-in-out 99999s;
+}
