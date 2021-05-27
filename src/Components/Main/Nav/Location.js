@@ -43,7 +43,7 @@ const Location = () => {
   
   return (
     <>
-      <form onSubmit={handleSubmit}><input type="text" style={{width: locationLength}} id="locationLength" name="currentLocation"  className="button button-location"  onChange={handleChange.bind(this)} onFocus={handleClearField} placeholder="ENTER CITY" value={currentLocation}></input></form>
+      <form onSubmit={handleSubmit}><input type="text" style={{width: locationLength}} name="currentLocation"  className="button button-location"  onChange={handleChange} onFocus={handleClearField} placeholder="ENTER CITY" value={currentLocation}></input></form>
     </>
   );
 };
