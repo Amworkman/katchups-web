@@ -426,7 +426,7 @@
   position: absolute;
   display: block;    
   background-color: #e4e4e4;
-  height: 30%;
+  height: 16vw;
   width: 48%;
   text-align: center; 
   align-content: center;   
@@ -485,8 +485,8 @@ h2{
 }
 
 @keyframes fadeUp {
-  from {bottom: -10vh;opacity: 0;}
-  to {bottom: 10vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
+  from {top: 75vh; opacity: 0;}
+  to {top: 60vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
                               1.5vw -1.5vw 3vw #953838,
                               inset .05vw -.2vw .2vw #b8b8b8,
                               inset -.05vw .2vw .2vw #fbfbfb; opacity: 1}
