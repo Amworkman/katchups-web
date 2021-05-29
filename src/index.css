@@ -26,6 +26,11 @@ body {
     
   }
 
+  ::selection {
+    color: rgb(201, 135, 135);
+    background: rgba(255, 255, 0, 0);
+  }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
