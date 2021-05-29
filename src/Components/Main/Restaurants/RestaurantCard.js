@@ -21,10 +21,11 @@ const RestaurantCard = (props) => {
       <div className="card">
         <div className="cardInner">
           <div className="restaurantInfo">
-            <h3>{props.restaurant.location.display_address[0]}</h3>
-            <h3>{props.restaurant.location.display_address[1]}</h3>
-            <h4>{props.restaurant.phone}</h4>
+          
             <div className="restaurantInfoInner">
+              <h3>{props.restaurant.location.display_address[0]}</h3>
+              <h3>{props.restaurant.location.display_address[1]}</h3>
+              <h4>{props.restaurant.phone}</h4>
               <div>
                 <span className="price">{props.restaurant.price}</span>
                 <span className="emptyPrice">$$$$</span>
