@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { MtrDatepicker } from "./mtr-datepicker.min.js"
 import "./datePicker.scoped.css"
 import Clock from "./Clock"
 
 const DatePicker = () => { 
 
-  const datePicker = new MtrDatepicker({
+  const datePicker = useMemo(() => new MtrDatepicker({
     target: 'datepicker'
-  })
+  }), []);
 
   const [time, setTime] = useState(datePicker.getFullTime());
-  const [date, setDate] = useState(datePicker.toDateString().slice(0, -5));
+  const [date, setDate] = useState(datePicker.toDateString().slice(0, -5));  
 
-  
-
-  // setInterval(() => {
-  //   setTime(datePicker.getFullTime())
-  //   setDate(datePicker.toDateString().slice(0, -5))
-  // }, 1000);
-
+  setInterval(() => {
+    if(time !== datePicker.getFullTime()){
+      setTime(datePicker.getFullTime())
+    }
+    if(date !== datePicker.toDateString().slice(0, -5)){
+      setDate(datePicker.toDateString().slice(0, -5))
+    }
+  }, 1000);
   
   return ( 
     <div>
