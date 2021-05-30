@@ -85,9 +85,27 @@
 
 h2 {
   position: absolute;
-  bottom: 2.5%;
-  left: 13%;
+  font-size: 3.1vw;
+  bottom: .1%;
+  left: 11%;
   color: rgb(204, 204, 206)
+}
+
+.arrow {
+  position: absolute;
+  font-size: 4vw;
+  color: rgb(204, 204, 206);
+
+}
+
+.arrowUp { 
+  left: 12%;
+  bottom: 16%;  
+}
+
+.arrowRight {
+  left: 22%;
+  bottom: 4%;
 }
 
 input:-webkit-autofill:hover, 
