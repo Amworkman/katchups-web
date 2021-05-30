@@ -2,6 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { MtrDatepicker } from "./mtr-datepicker.min.js"
 import "./datePicker.scoped.css"
 import Clock from "./Clock"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLongArrowAltUp, faLongArrowAltRight} from '@fortawesome/free-solid-svg-icons'
 
 const DatePicker = () => { 
 
@@ -28,7 +30,13 @@ const DatePicker = () => {
       <div className="dateBoxLeft">
         <Clock/>        
         <button className="button now" >katchup now</button>
+        <div className="arrow arrowUp">
+          <FontAwesomeIcon icon={faLongArrowAltUp} />
+        </div>
         <h2>or</h2>
+        <div className="arrow arrowRight">
+          <FontAwesomeIcon icon={faLongArrowAltRight} />
+        </div>
         <button className="button setDate">katchup at {time} on {date}</button>
       </div>
       <div className="dateBoxRight">
