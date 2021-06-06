@@ -25,7 +25,11 @@
     line-height:20px!important;
     cursor:pointer!important;
     z-index:1!important;
-    position:relative!important
+    position:relative!important;
+    animation: fadeIn .7s ease-in-out; 
+    animation-delay: 3s;
+    animation-fill-mode: forwards; 
+    opacity: 0;
 }
 .mtr-datepicker 
 .mtr-input-slider 
@@ -39,7 +43,11 @@
     overflow:hidden!important;
     height:145px!important;
     z-index:2!important;
-    position:relative!important
+    position:relative!important;
+    animation: fadeIn .8s ease-in-out; 
+    animation-delay: 2.4s;
+    animation-fill-mode: forwards; 
+    opacity: 0;
 }
 .mtr-datepicker 
 .mtr-input-slider 
@@ -118,6 +126,10 @@
     width: 50px;
     font-size:40px!important;
     z-index: 1;
+    animation: fadeIn .8s ease-in-out; 
+    animation-delay: 2.4s;
+    animation-fill-mode: forwards; 
+    opacity: 0;
 }
 .mtr-datepicker 
 .mtr-input-radio label{
@@ -146,3 +158,8 @@
     text-align:center!important;
     padding:10px!important;
     z-index:100000!important}
+
+@keyframes fadeIn { 
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
