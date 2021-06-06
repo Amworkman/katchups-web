@@ -403,7 +403,7 @@
   position: absolute;
   display: block;    
   background-color: #e4e4e4;
-  height: 30%;
+  height: 16vw;
   width: 48%;
   text-align: center; 
   align-content: center;   
@@ -419,14 +419,14 @@
   animation-fill-mode: forwards;   
   left: 50%;
   transform: translate(-50%);
-  bottom: 10vh;
+  bottom: 7vh;
 } 
 
 .card{
   position: absolute;
   display: block;    
   background-color: #e4e4e4;
-  height: 16vw;
+  height: 15.5vw;
   width: 48%;
   text-align: center; 
   align-content: center;   
@@ -485,16 +485,16 @@ h2{
 }
 
 @keyframes fadeUp {
-  from {top: 75vh; opacity: 0;}
-  to {top: 60vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
+  from {bottom: -100%; opacity: 0;}
+  to {bottom: 7vh; box-shadow:  -1.5vw 1.5vw 3vw #552020,
                               1.5vw -1.5vw 3vw #953838,
                               inset .05vw -.2vw .2vw #b8b8b8,
                               inset -.05vw .2vw .2vw #fbfbfb; opacity: 1}
 }
 
 @keyframes fadeUpKatchup {
-  from {height: 30%;}
-  to {height: 75%;
+  from {height: 16vw;}
+  to {height: 80%;
     box-shadow:  -1.5vw 1.5vw 3vw #552020,
     1.5vw -1.5vw 3vw #953838,
     inset .05vw -.2vw .2vw #b8b8b8,
