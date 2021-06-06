@@ -26,87 +26,145 @@
                    -.15vw .1vw .3vw #e48b8b81;
 }
 
+.datePicker{ 
+  opacity: 0;
+}
+
 .location {
-  position: relative;
-  top: 10%;
+  position: absolute;
+  bottom:30%;
   height: 10%;
-  width: 30%;
+  width: 12.5vw;
+  left: 1%;
+  font-size: 2.1vw;
+  text-transform: uppercase;  
+  background-color: #271f1f00 !important;
+  color: #2a2a2a;
+  border: none;
+  outline: none;
   color: white;
   display: flex; 
-  align-items: center; 
-  justify-content: center;
+  text-align: center;
+  animation: fadeIn .7s ease-in-out; 
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards; 
+  opacity: 0;
 }
+
+
 
 .button{  
   display: flex;
   position: absolute;    
-  background-color: #a03b3bbb;
+  background-color: #a03b3b00;
   color: rgb(204, 204, 206);
   border: none;
   outline: none;
-  padding: 1.5vw;
-  font-size: 1.5vw;
-  font-weight: bolder;
-  border-radius: 10px;
-  box-shadow: -.08vw .1vw 1vw #2e0a0a6c,
-               .08vw -.06vw 1vw #d8707067,               
-              inset .08vw -.1vw .5vw #2e0a0a6c,
-              inset -.08vw .06vw .5vw #e4808041;
+  letter-spacing: -4.5px;
+  font-size: 2.5vw;
   transition: .8s;
-}
-
-.button-location{
-  left: 25%;
-  max-width: 17ch; 
-}
-
-.button:hover {
-  box-shadow: -.08vw .1vw .5vw #2e0a0a60,
-               .08vw -.06vw .5vw #e4808041,
-               inset .08vw -.1vw .5vw #0c0a2e6c,
-              inset -.08vw .06vw .5vw #8280e441;
-  color: #c7c7c7;
-  background-color: #5177cabb;
 }
 
 .now {
   position: absolute;
-  bottom: 30%;
+  bottom: 40%;
   left:2.5%;
   cursor: pointer;
+  animation: fadeIn .7s ease-in-out; 
+  animation-delay: 1s;
+  animation-fill-mode: forwards; 
+  opacity: 0;
 }
 
 .setDate{
   position: absolute;
-  bottom: 4.5%;
-  right: 4%;
+  bottom: 2.5%;
+  height: 6.68vw;
+  right: -200%;
   cursor: pointer;
+  text-align: right;
+  width: 98%;
+  animation: fromRight 1.2s ease-in-out; 
+  animation-delay: 1.7s;
+  animation-fill-mode: forwards; 
+  display: table-cell;
+  vertical-align: middle;
+  opacity: 1;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(25deg, rgb(189, 189, 189), #ffffff, #af4242);
+  background-size: 300%;
+  background-position: 90%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent; 
 }
+
+.setDate:hover{
+  background-position: 0%;
+}
+
 
 h2 {
   position: absolute;
-  font-size: 3.1vw;
-  bottom: .1%;
-  left: 11%;
-  color: rgb(204, 204, 206)
+  font-size: 3.08vw;
+  bottom: 35%;
+  left: 1%;
+  color: rgb(255, 255, 255);
+  animation: fadeIn .7s ease-in-out; 
+  animation-delay: 1.3s;
+  animation-fill-mode: forwards; 
+  opacity: 0;
+  cursor: pointer;
 }
 
-.arrow {
+.arrowBig {
+  height: 12.6vw;
+  padding: 0 !important;
+  margin: 0 !important;
   position: absolute;
-  font-size: 4vw;
-  color: rgb(204, 204, 206);
-
+  font-size: 17vw;
+  color: transparent;
+  cursor: default;
+  background-color: #00000062;
+  color: transparent;
+  text-shadow: 2px -2px 3px rgba(255, 255, 255, 0.707);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+   
 }
+.arrowBigBack {
+  height: 12.7vw;  
+  padding: 0 !important;
+  margin: 0 !important;
+  position: absolute;
+  font-size: 17.1vw;
+  color: transparent;
+  cursor: default;
+  color: white;
+  left: -100%;
+  bottom: 0.05% !important;
+  text-shadow: 2px -2px 6px rgba(228, 130, 130, 0.446),
+                -2px 2px 6px rgba(0, 0, 0, 0.323);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  animation: fromLeft 1.5s ease-in-out; 
+  animation-delay: 1.1s;
+  animation-fill-mode: forwards; 
 
-.arrowUp { 
-  left: 12%;
-  bottom: 16%;  
 }
 
 .arrowRight {
-  left: 22%;
-  bottom: 4%;
+  bottom: 0%;
+  left: -100%;
+  animation: fromLeft 1.5s ease-in-out; 
+  animation-delay: 1.1s;
+  animation-fill-mode: forwards; 
 }
+
 
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -125,4 +183,19 @@ select:-webkit-autofill {
   box-shadow: 0 0 0px 0px #000 inset;
   -webkit-text-fill-color: rgb(204, 204, 206);
   transition: background-color 99999s ease-in-out 99999s;
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fromLeft {
+  from {left: -100%; }
+  to {left:-11% }
+}
+
+@keyframes fromRight {
+  from {right: -200%; }
+  to {right: 2% }
 }
