@@ -1,32 +1,18 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './datePicker.scoped.css'
 
-function reducer(state, { name, value }) {
-  return {
-    ...state,
-    [name]: value
-  }
-}
-
 const Location = () => { 
+  const user = JSON.parse(localStorage.currentUser)
+
+  const [location, setLocation] = useState(user.location)
   
   useEffect(() => {
-    flexFont()
-  })
+    adjustFontSize()
+  },[location])  
 
-  const user = JSON.parse(localStorage.currentUser)
-  
-  let initialState = {
-    location: user.location,
-  } 
-  
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const { location } = state
-
-  const flexFont = () => {
-        let relFontsize = 1.9 - location.length*0.05;
-        document.getElementById("katchupLocation").style.fontSize = relFontsize+'vw';
+  const adjustFontSize = () => {
+        const fontSize = 1.9 - location.length*0.05
+        document.getElementById("katchupLocation").style.fontSize = fontSize+'vw'
   }  
 
   const handleSubmit = (e) => {
@@ -34,18 +20,26 @@ const Location = () => {
   }
 
     const handleClearField = (e) => {
-      dispatch({name: e.target.name, value: ""})
+      setLocation("")
   }
 
   const handleChange = (e) => {
-    dispatch({name: e.target.name, value: e.target.value})
+    setLocation(e.target.value)
   }  
-
   
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="text" id="katchupLocation" name="location"  className="location"  onChange={handleChange} onFocus={handleClearField} placeholder="ENTER CITY" value={location}/>
+        <input 
+          type="text" 
+          id="katchupLocation" 
+          className="location" 
+          onChange={handleChange} 
+          onFocus={handleClearField} 
+          placeholder="ENTER CITY"
+          spellcheck="false" 
+          value={location}
+        />
       </form>
     </>
   );
