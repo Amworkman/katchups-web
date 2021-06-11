@@ -3,8 +3,6 @@ import { MtrDatepicker } from "./mtr-datepicker.min.js"
 import "./datePicker.scoped.css"
 import Clock from "./Clock"
 import Location from "./Location"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 
 const DatePicker = () => { 
 
