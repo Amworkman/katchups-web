@@ -1,49 +1,54 @@
-import React, { useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchRestaurants } from '../../../Actions/RestaurantActions';
 import { useDispatch } from "react-redux";
 import './NavBar.scoped.css'
 
-function reducer(state, { name, value }) {
-  return {
-    ...state,
-    [name]: value
-  }
-}
-
-const Location = () => {  
-
+const Location = () => {
   const user = JSON.parse(localStorage.currentUser)
+  const [location, setLocation] = useState(user.location)
   const storeDispatch = useDispatch();
   
-  let initialState = {
-    currentLocation: user.location,
-    locationLength: user.location.length + 1 + "ch"
-  } 
   
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const { currentLocation, locationLength } = state
+  useEffect(() => {
+    adjustInputSize()
+  },[location]) 
   
+  const adjustInputSize = () => {
+    const locationButton = document.getElementById("userLocation")
+    if (location.length < 1){
+      locationButton.style.width = locationButton.placeholder.length+2+'ch'
+    }else{
+      locationButton.style.width = location.length+5+'ch'
+    }
+  }
 
   const handleSubmit = (e) => {
      e.preventDefault()
-     storeDispatch(fetchRestaurants(currentLocation))
+     storeDispatch(fetchRestaurants(location))
     }
 
     const handleClearField = (e) => {
-      dispatch({name: e.target.name, value: ""})
+      setLocation("")
     }
 
   const handleChange = (e) => {
-    dispatch({name: e.target.name, value: e.target.value})
-    if (currentLocation.length > 2){
-      dispatch({name: e.target.id, value: e.target.value.length + 4 + "ch"})
-    } else { dispatch({name: e.target.id, value: e.target.placeholder.length + 2 + "ch"})  }
+    setLocation(e.target.value)
   }
   
   return (
     <>
-      <form onSubmit={handleSubmit}><input type="text" style={{width: locationLength}} name="currentLocation"  className="button button-location"  onChange={handleChange} onFocus={handleClearField} placeholder="ENTER CITY" value={currentLocation}></input></form>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          id="userLocation"  
+          className="button button-location"  
+          onChange={handleChange} 
+          onFocus={handleClearField} 
+          placeholder="ENTER CITY" 
+          spellcheck="false"
+          value={location}
+        />
+      </form>
     </>
   );
 };
