@@ -16,8 +16,6 @@
 }
 
 .button{  
-  display: inline-flex;
-  position: absolute;
   text-transform: uppercase;  
   background-color: #e4e4e400;
   color: #2a2a2a;
@@ -25,10 +23,11 @@
   outline: none;
   font-size: 1.5vw;
   font-weight: bolder;
+  text-align: center;
   border-radius: 10px;
   text-shadow: -.08vw .1vw .2vw #0000006c,
                .08vw -.06vw .15vw #e7e7e741;
-  transition: 0.5s;
+  transition: color 0.5s;
   transition: text-shadow 0.5;
 }
 
@@ -72,7 +71,36 @@
 .button-location{
   bottom: 22%;
   left: 26vw;
-  max-width: 17ch; 
+  max-width: 25ch; 
+}
+
+.container-location {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center; 
+  width: 28ch;
+  height: 20px; 
+}
+
+.container-friends {
+  display: inline-flex;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: center; 
+  width: 28ch;
+  height: 20px;  
+}
+
+.container-recents {
+  display: inline-flex;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 12ch;
+  height: 20px;   
 }
 
 .button-location:focus {
