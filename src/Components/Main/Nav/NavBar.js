@@ -10,9 +10,15 @@ const NavBar = (props) => {
   return (
     <div className="navbar">
       <div className="middle">
-        <FindFriends handleSelectedFriend={props.handleSelectedFriend}/>
-        <Recents />
-        <Location />
+      <div className="container-location">
+          <Location />
+        </div>        
+        <div className="container-recents">
+          <Recents />
+        </div>
+        <div className="container-friends">
+          <FindFriends handleSelectedFriend={props.handleSelectedFriend}/>
+        </div>        
         <img className="button button-img" alt="" src={user.profile_img_url} />               
         <input type="button" id="user-tag" name="user-tag" className="button button-username" value={user.name} />
         
