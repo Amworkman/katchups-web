@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './datePicker.scoped.css'
 
-const Location = () => { 
+const Location = (props) => { 
   const user = JSON.parse(localStorage.currentUser)
 
   const [location, setLocation] = useState(user.location)
   
   useEffect(() => {
     adjustFontSize()
+    props.updateLocation(location)
   },[location])  
 
   const adjustFontSize = () => {
@@ -26,6 +27,7 @@ const Location = () => {
   const handleChange = (e) => {
     setLocation(e.target.value)
   }  
+  
   
   return (
     <>

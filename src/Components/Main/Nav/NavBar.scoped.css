@@ -191,10 +191,10 @@
   position: absolute;
   display: block;
   top: 20vh;  
-  left: 25%;  
+  left: -100%;  
   background-color: #e4e4e4;
   height: 63vh;
-  width: 50%;
+  width: 154%;
   text-align: center; 
   align-content: center;   
   align-items: center;
