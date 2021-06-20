@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from "react-redux"
 import { acceptFriendRequest, rejectFriendRequest } from "../../../Actions/FriendActions"
-import DatePicker from "./Katchups/DatePicker"
+import DatePicker from "./Katchups/dateTimePicker/DatePicker"
 import InfoCard from "./InfoCard"
 
 const initialState = {
@@ -69,7 +69,7 @@ const FriendCard = (props) => {
         <div className="cardInner" id="cardInner">
         <div id="datePickerBox" className="datePickerBox-hidden"><div id="datepicker"></div></div>
         {cardState === 'showDatePicker' && (          
-          <DatePicker />
+          <DatePicker friendID={friendID}/>
         )}
         {cardState === 'showCard' && (
           <InfoCard handleKatchup={handleKatchup} friend={props.friend}/>      
