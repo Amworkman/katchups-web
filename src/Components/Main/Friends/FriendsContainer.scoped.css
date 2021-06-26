@@ -422,6 +422,28 @@
   bottom: 7vh;
 } 
 
+.katchupCardSmall{
+  position: absolute;
+  display: block;    
+  background-color: #e4e4e4;
+  height: 80%;
+  width: 48%;
+  text-align: center; 
+  align-content: center;   
+  align-items: center;
+  justify-content: center;
+  padding: .5vw;
+  border-radius: 10px;
+  border: none;
+  outline: none;  
+  animation: fadeDownKatchup 1s;
+  animation-delay: 1.1s; 
+  animation-fill-mode: forwards;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 7vh;   
+}
+
 .card{
   position: absolute;
   display: block;    
@@ -499,6 +521,11 @@ h2{
     1.5vw -1.5vw 3vw #953838,
     inset .05vw -.2vw .2vw #b8b8b8,
     inset -.05vw .2vw .2vw #fbfbfb; }
+}
+
+@keyframes fadeDownKatchup {
+  from {height: 80%;}
+  to {height: 16vw;}
 }
 
 @keyframes fadeLeft {
