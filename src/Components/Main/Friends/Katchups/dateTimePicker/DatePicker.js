@@ -33,6 +33,7 @@ const DatePicker = (props) => {
     storeDispatch(createKatchup(friendID, datePicker.toString(), location))
     setCardState("showKatchupCard")
     datePicker.destroy()
+    document.getElementById("friendCard").className ="katchupCardSmall" 
   }
 
   const updateLocation = (katchupLocation) => {
