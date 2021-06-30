@@ -1,7 +1,7 @@
 export const fetchRestaurants = (location) => {
-  return (dispatch) => {
+  return async(dispatch) => {
     dispatch({ type: 'LOADING'})
-    fetch(`http://localhost:3000/restaurants?location=${location}`,{
+    await fetch(`http://localhost:3000/restaurants?location=${location}`,{
       method: "GET",
       headers: {
         "content-type": "application/json",
