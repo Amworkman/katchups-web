@@ -437,7 +437,7 @@
   border: none;
   outline: none;  
   animation: fadeDownKatchup 1s;
-  animation-delay: 1.1s; 
+  animation-delay: .5s; 
   animation-fill-mode: forwards;
   left: 50%;
   transform: translate(-50%);
