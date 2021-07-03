@@ -9,9 +9,9 @@ export const fetchRestaurants = (location) => {
       }
     })
     .then(resp => {
-      return resp.json()
+      return resp.json()      
     }).then(data => {
-      dispatch({ type: 'GET_RESTAURANTS', restaurants: data.businesses })
+      dispatch({ type: 'GET_RESTAURANTS', restaurants: data.data.search.business })
     })
   }
 }

@@ -10,6 +10,9 @@ const RestaurantCard = (props) => {
     fitText.innerText = props.restaurant.name
   }
 
+  const location = props.restaurant.location.split("\n")
+  debugger
+
   return (
     <>
       {changeText()}
@@ -23,8 +26,8 @@ const RestaurantCard = (props) => {
           <div className="restaurantInfo">
           
             <div className="restaurantInfoInner">
-              <h3>{props.restaurant.location.display_address[0]}</h3>
-              <h3>{props.restaurant.location.display_address[1]}</h3>
+              <h3>{location[0]}</h3>
+              <h3>{location[1]}</h3>
               <h4>{props.restaurant.phone}</h4>
               <div>
                 <span className="price">{props.restaurant.price}</span>
