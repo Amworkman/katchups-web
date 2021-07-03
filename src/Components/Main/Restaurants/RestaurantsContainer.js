@@ -48,9 +48,9 @@ const RestaurantsContainer = (props) => {
 				name={restaurant.name}
 				price={restaurant.price}
 				rating={restaurant.rating}
-				location={restaurant.location}
+				location={restaurant.location.formatted_address}
 				categories={restaurant.categories}
-				img={restaurant.image_url}
+				img={restaurant.photos[0]}
 				phone={restaurant.display_phone}
 				url={restaurant.url}
 				reviewCount={restaurant.review_count}
