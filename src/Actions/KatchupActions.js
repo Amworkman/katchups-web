@@ -11,6 +11,8 @@ export const createKatchup = (friend, date, location) => {
     })
     .then(resp => {
       return resp.json()
+    }).then(data => {
+      dispatch({ type: 'CURRENT_KATCHUP', currentKatchup: JSON.stringify(data)})
     })
   }
 }
