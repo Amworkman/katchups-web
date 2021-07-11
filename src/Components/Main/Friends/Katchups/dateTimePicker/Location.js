@@ -39,7 +39,7 @@ const Location = (props) => {
           onChange={handleChange} 
           onFocus={handleClearField} 
           placeholder="ENTER CITY"
-          spellcheck="false" 
+          spellCheck="false" 
           value={location}
         />
       </form>
