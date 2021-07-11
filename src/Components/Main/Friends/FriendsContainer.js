@@ -41,7 +41,6 @@ const FriendsContainer = (props) => {
 
  
   const handleChange = (e) => {
-    debugger
     dispatch({name: e.target.name, value: e.target.value})
   }
 

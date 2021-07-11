@@ -11,7 +11,6 @@ const RestaurantCard = (props) => {
   }
 
   const location = props.restaurant.location.split("\n")
-  debugger
 
   return (
     <>
