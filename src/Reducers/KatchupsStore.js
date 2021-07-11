@@ -3,6 +3,8 @@ const KatchupsStore = ( state = {
   friends: [],
   users: [],
   friendRequests: [],
+  currentKatchup: {},
+  currentKatchupReady: false,
   updated: false,
   loading: false,
   loadingFriends: false,
@@ -75,6 +77,18 @@ const KatchupsStore = ( state = {
         friendRequests: action.friendRequests,
         loading: false
       }
+
+      case 'CURRENT_KATCHUP':
+        return {
+          ...state,
+          currentKatchup: action.currentKatchup,
+          currentKatchupReady: true
+        }
+      case 'START_KATCHUP':
+        return {
+          ...state,
+          currentKatchupReady: false
+        }
     default:
       return state; 
   }
