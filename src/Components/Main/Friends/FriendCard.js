@@ -39,8 +39,9 @@ const FriendCard = (props) => {
     fitText.innerText = ""
     const datePickerBox = document.getElementById("datePickerBox");  
     datePickerBox.classList.toggle("datePickerBox-active");
-    document.getElementById("friendImg").innerHTML = ""  
-    document.getElementById("friendImg").className = "friendImg-outer--transparent"
+    document.getElementById("imgInner").className = "img--transparent"  
+    document.getElementById("imgOuter").className = "img---transparent"
+    document.getElementById("img").className = "img--transparent"
     document.getElementById("friendCard").className ="katchupCard" 
     setCardState("showDatePicker")  
   }
@@ -61,9 +62,9 @@ const FriendCard = (props) => {
 
   return (
     <>    
-      <div id="friendImg" className="friendImg-outer">
-        <div className="friendImg-inner"></div>
-        <img  className="friendImg" src={props.friend.img} alt="firend"/><br />        
+      <div id="imgOuter" className="img-outer">
+        <div id="imgInner" className="img-inner"></div>
+        <img  id="img" className="img" src={props.friend.img} alt="firend"/><br />        
       </div>
       <div className="card" id="friendCard">
         <div className="cardInner" id="cardInner">
