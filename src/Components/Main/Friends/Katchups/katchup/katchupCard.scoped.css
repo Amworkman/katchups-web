@@ -6,12 +6,3 @@
   width: 100%;
   background-color: rgba(39, 39, 197, 0);
 }
-
-.katchupStripe{
-  position: absolute;
-  top: 0px;
-  left: 25%;
-  height: 100%;
-  width: 50%;
-  background-color: #8b3535;
-}
