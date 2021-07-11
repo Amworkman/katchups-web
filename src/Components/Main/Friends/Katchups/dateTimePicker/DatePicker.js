@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { MtrDatepicker } from "./mtr-datepicker.min.js"
 import "./datePicker.scoped.css"
@@ -13,10 +13,15 @@ const DatePicker = (props) => {
     target: 'datepicker'
   }), []);
 
+  useEffect(() => {
+    storeDispatch({ type: 'START_KATCHUP'})
+  },[])
+
   const [time, setTime] = useState(datePicker.getFullTime());
   const [date, setDate] = useState(datePicker.toDateString().slice(0, -5)); 
   const [location, setLocation] = useState("");
   const [cardState, setCardState] = useState('showDatePicker');
+  const currentKatchupReady = useSelector((state) => state.currentKatchupReady); 
   const friendID = props.friendID
   const storeDispatch = useDispatch()
 
@@ -44,8 +49,10 @@ const DatePicker = (props) => {
     <div>        
       <div>
         <div id='datePicker' className='datePicker'>    
-        </div>  
-        <KatchupCard />      
+        </div> 
+        {currentKatchupReady === true && (          
+          <KatchupCard />
+        )}              
         <div className={`dateBoxLeft ${cardState}`}>
           <Clock/> 
           <h2>Location</h2> 
