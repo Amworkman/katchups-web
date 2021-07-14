@@ -5,4 +5,91 @@
   height: 100%;
   width: 100%;
   background-color: rgba(39, 39, 197, 0);
+
+}
+
+.price{
+  position: absolute;
+  color: #6cbe5e85;
+  font-size: 3vw;
+  letter-spacing: .3vw;
+  text-shadow: inset -.2vw .2vw .1vw #7a7a7a;  
+  font-family: "Londrina Solid";
+  line-height: 4.5vw;
+}
+
+.emptyPrice{
+  position: relative;
+  color: #1b1a1a;
+  font-size: 3vw;
+  letter-spacing: .3vw;
+  text-shadow: inset -.2vw .2vw .1vw #7a7a7a;
+  font-family: "Londrina Shadow";  
+  line-height: 4.5vw;     
+}
+
+h3{
+  position: relative;
+  top: 1px;
+  margin: 5px 0px 0px 0px; 
+  padding: 0px 0px 0px 0px;
+  font-size: 1.8vw;
+  font-family: Helvetica;
+  font-weight: bolder;
+}
+
+h4{
+  align-self: center;
+  margin: 6px 0px 0px 0px; 
+  padding: 0px 0px 0px 0px;
+  font-size: 1vw;
+  font-family: Helvetica;
+}
+
+.yelpImg{
+  width: auto;
+  height: 2.5vw;
+  margin-left: .4vw;
+  margin-top: -.3vw;
+  margin-right: -.5vw;
+  cursor: pointer;
+}
+
+.reviews{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items:center; 
+  font-size: 1.5vw;
+  margin-top: .3vw;
+}
+.stars-img {
+  width: 18vw; 
+  cursor: pointer;
+}
+
+.likeButton {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 4.5vw;
+  color: #5387e7;
+}
+
+.dislikeButton {
+  position: absolute;
+  left: 8%;
+  top: 60%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;  
+  border: none;
+  background: transparent;
+  font-size: 4.5vw;
+  color: #af3c3c;
 }
