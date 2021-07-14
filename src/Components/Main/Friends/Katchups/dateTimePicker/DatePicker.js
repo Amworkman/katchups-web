@@ -39,6 +39,7 @@ const DatePicker = (props) => {
     setCardState("showKatchupCard")
     datePicker.destroy()
     document.getElementById("friendCard").className ="katchupCardSmall" 
+    document.getElementById("datePickerBox").remove()
   }
 
   const updateLocation = (katchupLocation) => {
