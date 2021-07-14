@@ -175,6 +175,7 @@
   -webkit-border-radius: 50%;
   top: 50%; 
   left: 50%;
+  object-fit: cover;
   transform: translate(-50%, -50%);
   animation: fadeIn 2s;
   animation-fill-mode: forwards; 
@@ -537,7 +538,7 @@ h2{
 
 @keyframes fadeDownKatchup {
   from {height: 80%;}
-  to {height: 16vw;}
+  to {height: 15vw;}
 }
 
 @keyframes fadeLeft {
