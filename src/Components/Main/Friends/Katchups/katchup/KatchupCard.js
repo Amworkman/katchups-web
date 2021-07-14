@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import { useSelector } from "react-redux"
 import "./katchupCard.scoped.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp} from '@fortawesome/free-solid-svg-icons'
+import { faThumbsDown} from '@fortawesome/free-solid-svg-icons'
 
 const KatchupCard = () => {
 
   const [restaurantIndex, setRestaurantIndex] = useState(0)
   const katchup = useSelector((state) => JSON.parse(state.currentKatchup)); 
   const fitText = document.getElementById("fitText")  
-  const location = katchup.katchup_array[restaurantIndex].location["formatted_address"].split("\n")
+  const location = katchup.katchup_array[restaurantIndex].location["formatted_address"]
   const imgOuter = document.getElementById("imgOuter")
   const imgInner = document.getElementById("imgInner")
   const img = document.getElementById("img")
@@ -20,31 +23,54 @@ const KatchupCard = () => {
   img.alt = ""
 
   const handleClick = () => {
-    setRestaurantIndex(restaurantIndex += 1)
+    setRestaurantIndex(restaurantIndex + 1)
+  }
+
+  const renderYelpStars = () => {
+    switch (katchup.katchup_array[restaurantIndex].rating) {
+      case 0:
+        return "yelpStars/0.png";
+      case 1:
+       return "yelpStars/1.png";
+      case 1.5:
+        return "yelpStars/1_half.png";
+      case 2:
+        return "yelpStars/2.png";
+      case 2.5:
+        return "yelpStars/2_half.png";
+      case 3:
+        return "yelpStars/3.png";
+      case 3.5:
+        return "yelpStars/3_half.png";
+      case 4:
+        return "yelpStars/4.png";
+      case 4.5:
+        return "yelpStars/4_half.png";
+      case 5:
+        return "yelpStars/5.png";
+      default:
+        return "yelpStars/0.png";
+        // TODO: noStarInfoText    
+    }
   }
   
   return (
     <>
-      <h3>{location[0]}</h3>
-      <h3>{location[1]}</h3>
+      <h3>{location}</h3>
       <h4>{katchup.katchup_array[restaurantIndex].phone}</h4>
       <div>
         <span className="price">{katchup.katchup_array[restaurantIndex].price}</span>
         <span className="emptyPrice">$$$$</span>
-      </div>  <br />        
-      <div className="hours">
-        <a href={katchup.katchup_array[restaurantIndex].url} target="_blank" rel="noopener noreferrer">
-          BUSINESS HOURS
-        </a>
       </div>
+      <img className="stars-img" src={renderYelpStars()} alt="stars"/>
       <div className="reviews">
-        <span className="reviewText">{katchup.katchup_array[restaurantIndex].reviewCount} reviews on </span>
+        <span className="reviewText"> from {katchup.katchup_array[restaurantIndex].review_count} reviews on </span>
         <a href={katchup.katchup_array[restaurantIndex].url} target="_blank" rel="noopener noreferrer">
           <img className="yelpImg" src="/yelp.png"/>
         </a>
       </div>
-      <button className="likeButton" onClick={handleClick}> yes </button>
-      <button className="dislikeButton" onClick={handleClick}> no </button>
+      <button className="likeButton" onClick={handleClick}> <FontAwesomeIcon icon={faThumbsUp}/> </button>
+      <button className="dislikeButton" onClick={handleClick}> <FontAwesomeIcon flip="horizontal" icon={faThumbsDown}/> </button>
     </>
   );
 };
