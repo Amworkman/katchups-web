@@ -1,19 +1,22 @@
 import React, {useState} from 'react';
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 import "./katchupCard.scoped.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { userUpdateKatchup } from '../../../../../Actions/KatchupActions'
 import { faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import { faThumbsDown} from '@fortawesome/free-solid-svg-icons'
 
 const KatchupCard = () => {
 
   const [restaurantIndex, setRestaurantIndex] = useState(0)
+  const [match, setMatch] = useState([])
   const katchup = useSelector((state) => JSON.parse(state.currentKatchup)); 
   const fitText = document.getElementById("fitText")  
   const location = katchup.katchup_array[restaurantIndex].location["formatted_address"]
   const imgOuter = document.getElementById("imgOuter")
   const imgInner = document.getElementById("imgInner")
   const img = document.getElementById("img")
+  const storeDispatch = useDispatch()
 
   fitText.innerText = katchup.katchup_array[restaurantIndex].name
   imgOuter.className = "img-outer"
@@ -22,8 +25,22 @@ const KatchupCard = () => {
   img.src = katchup.katchup_array[restaurantIndex].photos[0]
   img.alt = ""
 
-  const handleClick = () => {
-    setRestaurantIndex(restaurantIndex + 1)
+  const handleLikeClick = () => {
+    if (restaurantIndex < katchup.katchup_array.length - 1){
+      storeDispatch(userUpdateKatchup(katchup.id, katchup.katchup_array[restaurantIndex].id))
+      setMatch(katchup.user_array.filter(restaurantId => katchup.friend_array.includes(restaurantId)))
+      setRestaurantIndex(restaurantIndex + 1)
+    }
+  }
+
+  const handleDislikeClick = () => {
+    if (restaurantIndex < katchup.katchup_array.length - 1){
+      setRestaurantIndex(restaurantIndex + 1)
+    }
+  }
+
+  if(match.length > 0){
+    fitText.innerText = "MATCH"
   }
 
   const renderYelpStars = () => {
@@ -69,8 +86,8 @@ const KatchupCard = () => {
           <img className="yelpImg" src="/yelp.png"/>
         </a>
       </div>
-      <button className="likeButton" onClick={handleClick}> <FontAwesomeIcon icon={faThumbsUp}/> </button>
-      <button className="dislikeButton" onClick={handleClick}> <FontAwesomeIcon flip="horizontal" icon={faThumbsDown}/> </button>
+      <button className="likeButton" onClick={handleLikeClick}> <FontAwesomeIcon icon={faThumbsUp}/> </button>
+      <button className="dislikeButton" onClick={handleDislikeClick}> <FontAwesomeIcon flip="horizontal" icon={faThumbsDown}/> </button>
     </>
   );
 };
