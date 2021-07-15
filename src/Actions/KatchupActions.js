@@ -16,3 +16,21 @@ export const createKatchup = (friend, date, location) => {
     })
   }
 }
+export const userUpdateKatchup = (id, restaurant) => {
+  return async(dispatch) => {
+    dispatch({ type: 'LOADING'})
+    await fetch(`http://localhost:3000/katchups/${id}`,{
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({id: id, user_restaurant: restaurant}),
+    })
+    .then(resp => {
+      return resp.json()
+    }).then(data => {
+      dispatch({ type: 'CURRENT_KATCHUP', currentKatchup: JSON.stringify(data)})
+    })
+  }
+}
